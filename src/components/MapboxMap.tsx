@@ -1,0 +1,860 @@
+"use client";
+import { useEffect, useRef, useState } from "react";
+import mapboxgl from "mapbox-gl";
+import "mapbox-gl/dist/mapbox-gl.css";
+
+// Types
+interface ProjectProperties {
+  "Project Name": string;
+  Region: string;
+  Budget: number;
+  Beneficiaries: number;
+  Sector: string;
+  "Implementing Partner": string;
+}
+
+interface ProjectFeature {
+  type: "Feature";
+  properties: ProjectProperties;
+  geometry: {
+    type: "Point";
+    coordinates: [number, number];
+  };
+}
+
+interface ProjectData {
+  type: "FeatureCollection";
+  features: ProjectFeature[];
+}
+
+interface BoundaryProperties {
+  shapeName: string;
+  feature_id: number;
+}
+
+interface BoundaryFeature {
+  type: "Feature";
+  id: number;
+  properties: BoundaryProperties;
+  geometry: {
+    type: "Polygon";
+    coordinates: number[][][];
+  };
+}
+
+interface BoundaryData {
+  type: "FeatureCollection";
+  features: BoundaryFeature[];
+}
+
+interface ProjectLocationProperties {
+  region: string;
+  projects: ProjectProperties[];
+  totalBudget: number;
+  totalBeneficiaries: number;
+  sectors: string[];
+  partners: string[];
+}
+
+interface ProjectLocationFeature {
+  type: "Feature";
+  properties: ProjectLocationProperties;
+  geometry: {
+    type: "Point";
+    coordinates: [number, number];
+  };
+}
+
+interface ProjectLocationsData {
+  type: "FeatureCollection";
+  features: ProjectLocationFeature[];
+}
+
+// Constants
+const MAPBOX_STYLE = "mapbox://styles/mapbox/light-v11";
+const AFGHANISTAN_CENTER: [number, number] = [69.2075, 34.5553];
+const DEFAULT_ZOOM = 5;
+const GEOBOUNDARIES_URL =
+  "https://www.geoboundaries.org/data/geoBoundaries-3_0_0/AFG/ADM1/geoBoundaries-3_0_0-AFG-ADM1.geojson";
+
+// Set Mapbox access token from environment variable
+mapboxgl.accessToken = process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN || "";
+
+const MapboxMap: React.FC = () => {
+  const mapContainer = useRef<HTMLDivElement>(null);
+  const map = useRef<mapboxgl.Map | null>(null);
+  const [hoveredStateId, setHoveredStateId] = useState<number | null>(null);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    // Check if Mapbox token is available
+    if (!mapboxgl.accessToken) {
+      setError(
+        "Mapbox access token is required. Please add NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN to your .env.local file."
+      );
+      setIsLoading(false);
+      return;
+    }
+
+    if (!mapContainer.current || map.current) return;
+
+    // Initialize the map
+    map.current = new mapboxgl.Map({
+      container: mapContainer.current,
+      style: MAPBOX_STYLE,
+      center: AFGHANISTAN_CENTER,
+      zoom: DEFAULT_ZOOM,
+      projection: "mercator",
+    });
+
+    // Add navigation controls
+    map.current.addControl(new mapboxgl.NavigationControl(), "top-right");
+    map.current.addControl(new mapboxgl.FullscreenControl(), "top-right");
+
+    map.current.on("load", async () => {
+      if (!map.current) return;
+
+      try {
+        setIsLoading(true);
+
+        // Fetch data
+        const [projectResponse, boundariesResponse] = await Promise.all([
+          fetch("/data.geojson"),
+          fetch(GEOBOUNDARIES_URL),
+        ]);
+
+        if (!projectResponse.ok) {
+          throw new Error(
+            `Failed to fetch project data: ${projectResponse.status}`
+          );
+        }
+        if (!boundariesResponse.ok) {
+          throw new Error(
+            `Failed to fetch boundaries: ${boundariesResponse.status}`
+          );
+        }
+
+        const [projectData, boundariesData]: [ProjectData, BoundaryData] =
+          await Promise.all([
+            projectResponse.json(),
+            boundariesResponse.json(),
+          ]);
+
+        console.log("Data loaded successfully");
+
+        // Process boundaries data
+        const processedBoundaries: BoundaryData = {
+          ...boundariesData,
+          features: boundariesData.features.map(
+            (feature, index): BoundaryFeature => ({
+              ...feature,
+              id: index,
+              properties: {
+                ...feature.properties,
+                feature_id: index,
+              },
+            })
+          ),
+        };
+
+        // Add sources
+        map.current!.addSource("afghanistan-boundaries", {
+          type: "geojson",
+          data: processedBoundaries,
+          generateId: false,
+        });
+
+        // Add layers
+        addMapLayers();
+
+        // Process and add project data
+        const projectsByRegion = processProjectData(projectData);
+        addProjectLayers(projectsByRegion);
+
+        // Add event listeners
+        addMapEventListeners(projectData);
+
+        setIsLoading(false);
+      } catch (error) {
+        console.error("Error loading data:", error);
+        setError(
+          "Failed to load map data. Please check your internet connection and try again."
+        );
+        setIsLoading(false);
+      }
+    });
+
+    // Cleanup
+    return () => {
+      if (map.current) {
+        map.current.remove();
+        map.current = null;
+      }
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const addMapLayers = () => {
+    if (!map.current) return;
+
+    // Province fill layer
+    map.current.addLayer({
+      id: "afghanistan-fills",
+      type: "fill",
+      source: "afghanistan-boundaries",
+      layout: {},
+      paint: {
+        "fill-color": "#f8d5cc",
+        "fill-opacity": 0.4,
+        "fill-outline-color": "#d3a79d",
+      },
+    });
+
+    // Hover layer
+    map.current.addLayer({
+      id: "afghanistan-hover",
+      type: "fill",
+      source: "afghanistan-boundaries",
+      layout: {},
+      filter: ["==", ["get", "feature_id"], -1],
+      paint: {
+        "fill-color": "#e63946",
+        "fill-opacity": 0.7,
+        "fill-outline-color": "#d3a79d",
+      },
+    });
+
+    // Border layer
+    map.current.addLayer({
+      id: "afghanistan-borders",
+      type: "line",
+      source: "afghanistan-boundaries",
+      layout: {},
+      paint: {
+        "line-color": "#8c6b63",
+        "line-width": 1,
+        "line-opacity": 0.8,
+      },
+    });
+
+    // Labels layer
+    map.current.addLayer({
+      id: "province-labels",
+      type: "symbol",
+      source: "afghanistan-boundaries",
+      layout: {
+        "text-field": ["get", "shapeName"],
+        "text-font": ["Open Sans Bold"],
+        "text-size": 12,
+        "text-allow-overlap": false,
+        "text-transform": "uppercase",
+      },
+      paint: {
+        "text-color": "#333",
+        "text-halo-color": "#fff",
+        "text-halo-width": 1,
+      },
+    });
+  };
+
+  const processProjectData = (projectData: ProjectData) => {
+    const projectsByRegion: Record<
+      string,
+      {
+        projects: ProjectProperties[];
+        totalBudget: number;
+        totalBeneficiaries: number;
+        sectors: string[];
+        partners: string[];
+        coordinates: [number, number];
+      }
+    > = {};
+
+    projectData.features.forEach((feature) => {
+      const region = feature.properties.Region;
+      if (!projectsByRegion[region]) {
+        projectsByRegion[region] = {
+          projects: [feature.properties],
+          totalBudget: feature.properties.Budget,
+          totalBeneficiaries: feature.properties.Beneficiaries,
+          sectors: [feature.properties.Sector],
+          partners: [feature.properties["Implementing Partner"]],
+          coordinates: feature.geometry.coordinates,
+        };
+      } else {
+        const regionData = projectsByRegion[region];
+        regionData.projects.push(feature.properties);
+        regionData.totalBudget += feature.properties.Budget;
+        regionData.totalBeneficiaries += feature.properties.Beneficiaries;
+
+        if (!regionData.sectors.includes(feature.properties.Sector)) {
+          regionData.sectors.push(feature.properties.Sector);
+        }
+
+        if (
+          !regionData.partners.includes(
+            feature.properties["Implementing Partner"]
+          )
+        ) {
+          regionData.partners.push(feature.properties["Implementing Partner"]);
+        }
+      }
+    });
+
+    return projectsByRegion;
+  };
+
+  const addProjectLayers = (
+    projectsByRegion: ReturnType<typeof processProjectData>
+  ) => {
+    if (!map.current) return;
+
+    const projectLocations: ProjectLocationsData = {
+      type: "FeatureCollection",
+      features: Object.entries(projectsByRegion).map(
+        ([region, data]): ProjectLocationFeature => ({
+          type: "Feature",
+          properties: {
+            region,
+            projects: data.projects,
+            totalBudget: data.totalBudget,
+            totalBeneficiaries: data.totalBeneficiaries,
+            sectors: data.sectors,
+            partners: data.partners,
+          },
+          geometry: {
+            type: "Point",
+            coordinates: data.coordinates,
+          },
+        })
+      ),
+    };
+
+    map.current.addSource("project-locations", {
+      type: "geojson",
+      data: projectLocations,
+    });
+
+    map.current.addLayer({
+      id: "project-points",
+      type: "circle",
+      source: "project-locations",
+      paint: {
+        "circle-radius": 6,
+        "circle-color": "#e63946",
+        "circle-opacity": 0.8,
+        "circle-stroke-width": 1,
+        "circle-stroke-color": "#fff",
+      },
+    });
+  };
+
+  const addMapEventListeners = (projectData: ProjectData) => {
+    if (!map.current) return;
+
+    // Mouse move handler
+    map.current.on("mousemove", "afghanistan-fills", (e) => {
+      if (!map.current || !e.features?.length) return;
+
+      try {
+        if (hoveredStateId !== null) {
+          map.current.setFilter("afghanistan-hover", [
+            "==",
+            ["get", "feature_id"],
+            -1,
+          ]);
+        }
+
+        const id = e.features[0].id || 0;
+        map.current.setFilter("afghanistan-hover", [
+          "==",
+          ["get", "feature_id"],
+          id,
+        ]);
+        setHoveredStateId(id as number);
+        map.current.getCanvas().style.cursor = "pointer";
+      } catch (error) {
+        console.warn("Error in mousemove event:", error);
+      }
+    });
+
+    // Mouse leave handler
+    map.current.on("mouseleave", "afghanistan-fills", () => {
+      if (!map.current) return;
+
+      try {
+        if (hoveredStateId !== null) {
+          map.current.setFilter("afghanistan-hover", [
+            "==",
+            ["get", "feature_id"],
+            -1,
+          ]);
+        }
+        setHoveredStateId(null);
+        map.current.getCanvas().style.cursor = "";
+      } catch (error) {
+        console.warn("Error in mouseleave event:", error);
+      }
+    });
+
+    // Province click handler
+    map.current.on("click", "afghanistan-fills", (e) => {
+      if (!map.current || !e.features?.length) return;
+
+      try {
+        handleProvinceClick(e, projectData);
+      } catch (error) {
+        console.error("Error in province click handler:", error);
+      }
+    });
+
+    // Project point click handler
+    map.current.on("click", "project-points", (e) => {
+      if (!map.current || !e.features?.length) return;
+      handleProjectClick(e);
+    });
+  };
+
+  const handleProvinceClick = (
+    e: mapboxgl.MapMouseEvent,
+    projectData: ProjectData
+  ) => {
+    if (!map.current || !e.features?.length) return;
+
+    // Remove existing popups
+    const existingPopups = document.getElementsByClassName("mapboxgl-popup");
+    Array.from(existingPopups).forEach((popup) => popup.remove());
+
+    const feature = e.features[0] as mapboxgl.MapboxGeoJSONFeature;
+    const provinceName = feature.properties?.shapeName || "Unknown Province";
+    const featureId = feature.id || feature.properties?.feature_id;
+
+    // Find matching projects
+    const matchingProjects = projectData.features.filter((project) =>
+      project.properties.Region.toLowerCase().includes(
+        provinceName.toLowerCase()
+      )
+    );
+
+    if (matchingProjects.length === 0) {
+      console.log(`No projects found in ${provinceName}`);
+      return;
+    }
+
+    // Calculate statistics
+    const stats = calculateProjectStats(matchingProjects);
+
+    // Create popup content
+    const html = createPopupHTML(provinceName, matchingProjects, stats);
+
+    // Position and show popup
+    showPopup(feature, html, featureId);
+  };
+
+  const handleProjectClick = (e: mapboxgl.MapMouseEvent) => {
+    if (!e.features?.length) return;
+
+    // Remove existing popups
+    const existingPopups = document.getElementsByClassName("mapboxgl-popup");
+    Array.from(existingPopups).forEach((popup) => popup.remove());
+
+    const feature = e.features[0] as mapboxgl.MapboxGeoJSONFeature;
+    const properties = feature.properties!;
+    const coordinates = (
+      feature.geometry as GeoJSON.Point
+    ).coordinates.slice() as [number, number];
+
+    // Parse properties
+    const projects =
+      typeof properties.projects === "string"
+        ? JSON.parse(properties.projects)
+        : properties.projects;
+
+    const sectors =
+      typeof properties.sectors === "string"
+        ? JSON.parse(properties.sectors)
+        : properties.sectors;
+
+    const partners =
+      typeof properties.partners === "string"
+        ? JSON.parse(properties.partners)
+        : properties.partners;
+
+    const html = createProjectPopupHTML(
+      properties,
+      projects,
+      sectors,
+      partners
+    );
+
+    new mapboxgl.Popup({
+      closeButton: true,
+      closeOnClick: false,
+      className: "custom-popup",
+      maxWidth: "320px",
+    })
+      .setLngLat(coordinates)
+      .setHTML(html)
+      .addTo(map.current!);
+  };
+
+  const calculateProjectStats = (projects: ProjectFeature[]) => {
+    const totalBudget = projects.reduce(
+      (sum, project) => sum + project.properties.Budget,
+      0
+    );
+    const totalBeneficiaries = projects.reduce(
+      (sum, project) => sum + project.properties.Beneficiaries,
+      0
+    );
+
+    const sectors = [
+      ...new Set(projects.map((project) => project.properties.Sector)),
+    ];
+    const partners = [
+      ...new Set(
+        projects.map((project) => project.properties["Implementing Partner"])
+      ),
+    ];
+
+    return { totalBudget, totalBeneficiaries, sectors, partners };
+  };
+
+  const createPopupHTML = (
+    provinceName: string,
+    projects: ProjectFeature[],
+    stats: ReturnType<typeof calculateProjectStats>
+  ): string => {
+    const projectsList = projects
+      .map((project) => `<li>${project.properties["Project Name"]}</li>`)
+      .join("");
+
+    const sectorsList = stats.sectors
+      .map((sector) => `<li>${sector}</li>`)
+      .join("");
+
+    const partnersList = stats.partners
+      .map((partner) => `<li>${partner}</li>`)
+      .join("");
+
+    return `
+      <div class="popup-content">
+        <h3 class="popup-title">${provinceName}</h3>
+        <div class="popup-body">
+          <div class="popup-stats">
+            <div class="stat-item">
+              <span class="stat-label">Total Budget</span>
+              <span class="stat-value budget">$${stats.totalBudget.toLocaleString()}</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-label">Total Beneficiaries</span>
+              <span class="stat-value beneficiaries">${stats.totalBeneficiaries.toLocaleString()}</span>
+            </div>
+          </div>
+          <div class="popup-details">
+            <div class="section">
+              <h4>Projects (${projects.length})</h4>
+              <ul class="project-list">${projectsList}</ul>
+            </div>
+            <div class="section">
+              <h4>Sectors</h4>
+              <ul class="sector-list">${sectorsList}</ul>
+            </div>
+            <div class="section">
+              <h4>Implementing Partners</h4>
+              <ul class="partner-list">${partnersList}</ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    `;
+  };
+
+  const createProjectPopupHTML = (
+    properties: Record<string, unknown>,
+    projects: ProjectProperties[],
+    sectors: string[],
+    partners: string[]
+  ): string => {
+    const budget = parseInt(String(properties.totalBudget)).toLocaleString();
+    const beneficiaries = parseInt(
+      String(properties.totalBeneficiaries)
+    ).toLocaleString();
+
+    const projectsList = Array.isArray(projects)
+      ? projects
+          .map((project) => `<li>${project["Project Name"]}</li>`)
+          .join("")
+      : "";
+
+    const sectorsList = Array.isArray(sectors)
+      ? sectors.map((sector) => `<li>${sector}</li>`).join("")
+      : "";
+
+    const partnersList = Array.isArray(partners)
+      ? partners.map((partner) => `<li>${partner}</li>`).join("")
+      : "";
+
+    return `
+      <div class="popup-content">
+        <h3 class="popup-title">${properties.region}</h3>
+        <div class="popup-body">
+          <div class="popup-stats">
+            <div class="stat-item">
+              <span class="stat-label">Total Budget</span>
+              <span class="stat-value budget">$${budget}</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-label">Total Beneficiaries</span>
+              <span class="stat-value beneficiaries">${beneficiaries}</span>
+            </div>
+          </div>
+          <div class="popup-details">
+            <div class="section">
+              <h4>Projects (${
+                Array.isArray(projects) ? projects.length : 0
+              })</h4>
+              <ul class="project-list">${projectsList}</ul>
+            </div>
+            <div class="section">
+              <h4>Sectors</h4>
+              <ul class="sector-list">${sectorsList}</ul>
+            </div>
+            <div class="section">
+              <h4>Implementing Partners</h4>
+              <ul class="partner-list">${partnersList}</ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    `;
+  };
+
+  const showPopup = (
+    feature: mapboxgl.MapboxGeoJSONFeature,
+    html: string,
+    featureId: string | number
+  ) => {
+    if (!map.current) return;
+
+    // Calculate bounds and position
+    const bounds = new mapboxgl.LngLatBounds();
+    const coordinates = (feature.geometry as GeoJSON.Polygon).coordinates[0];
+    coordinates.forEach((coord) => {
+      bounds.extend([coord[0], coord[1]]);
+    });
+
+    const center = bounds.getCenter();
+    const east = bounds.getEast();
+    const popupLngLat = new mapboxgl.LngLat(east + 0.5, center.lat);
+
+    // Create and show popup
+    new mapboxgl.Popup({
+      closeButton: true,
+      closeOnClick: false,
+      className: "custom-popup",
+      maxWidth: "320px",
+    })
+      .setLngLat(popupLngLat)
+      .setHTML(html)
+      .addTo(map.current);
+
+    // Adjust map view
+    map.current.easeTo({
+      center: [center.lng + 1, center.lat],
+      padding: { left: 50, right: 350 },
+      duration: 1000,
+    });
+
+    // Highlight province
+    map.current.setFilter("afghanistan-hover", [
+      "==",
+      ["get", "feature_id"],
+      featureId,
+    ]);
+    setHoveredStateId(featureId as number);
+  };
+
+  return (
+    <div className="map-container">
+      {error ? (
+        <div className="map-error">
+          <div className="error-content">
+            <div className="error-icon">⚠️</div>
+            <h3>Map Configuration Error</h3>
+            <p>{error}</p>
+            {error.includes("NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN") && (
+              <div className="error-instructions">
+                <h4>How to fix this:</h4>
+                <ol>
+                  <li>
+                    Get a Mapbox access token from{" "}
+                    <a
+                      href="https://account.mapbox.com/access-tokens/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Mapbox Account
+                    </a>
+                  </li>
+                  <li>
+                    Create a <code>.env.local</code> file in your project root
+                  </li>
+                  <li>
+                    Add:{" "}
+                    <code>
+                      NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN=pk.your_token_here
+                    </code>
+                  </li>
+                  <li>Restart your development server</li>
+                </ol>
+              </div>
+            )}
+          </div>
+        </div>
+      ) : isLoading ? (
+        <div className="map-loader">
+          <div className="loader-content">
+            <div className="spinner"></div>
+            <p>Loading map data...</p>
+          </div>
+        </div>
+      ) : null}
+
+      <style jsx global>{`
+        .map-error {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          background: rgba(255, 255, 255, 0.95);
+          padding: 40px;
+          border-radius: 12px;
+          box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+          backdrop-filter: blur(10px);
+          border: 1px solid rgba(255, 0, 0, 0.2);
+          z-index: 1000;
+          text-align: center;
+          min-width: 400px;
+          max-width: 600px;
+        }
+
+        .error-content {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 20px;
+        }
+
+        .error-icon {
+          font-size: 48px;
+        }
+
+        .map-error h3 {
+          margin: 0;
+          color: #dc2626;
+          font-size: 24px;
+          font-weight: 600;
+        }
+
+        .map-error p {
+          margin: 0;
+          color: #374151;
+          font-size: 16px;
+          line-height: 1.5;
+        }
+
+        .error-instructions {
+          text-align: left;
+          background: #f9fafb;
+          padding: 20px;
+          border-radius: 8px;
+          border-left: 4px solid #dc2626;
+        }
+
+        .error-instructions h4 {
+          margin: 0 0 15px 0;
+          color: #dc2626;
+          font-size: 16px;
+        }
+
+        .error-instructions ol {
+          margin: 0;
+          padding-left: 20px;
+        }
+
+        .error-instructions li {
+          margin: 8px 0;
+          color: #374151;
+          line-height: 1.5;
+        }
+
+        .error-instructions code {
+          background: #e5e7eb;
+          padding: 2px 6px;
+          border-radius: 4px;
+          font-family: "Monaco", "Consolas", monospace;
+          font-size: 14px;
+        }
+
+        .error-instructions a {
+          color: #2563eb;
+          text-decoration: underline;
+        }
+
+        .map-loader {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          background: rgba(255, 255, 255, 0.95);
+          padding: 30px;
+          border-radius: 12px;
+          box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+          backdrop-filter: blur(10px);
+          border: 1px solid rgba(255, 255, 255, 0.2);
+          z-index: 1000;
+          text-align: center;
+          min-width: 200px;
+        }
+
+        .loader-content {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 15px;
+        }
+
+        .spinner {
+          width: 40px;
+          height: 40px;
+          border: 3px solid #f3f4f6;
+          border-top: 3px solid #e63946;
+          border-radius: 50%;
+          animation: spin 1s linear infinite;
+        }
+
+        .map-loader p {
+          margin: 0;
+          color: #374151;
+          font-size: 14px;
+          font-weight: 500;
+        }
+
+        @keyframes spin {
+          0% {
+            transform: rotate(0deg);
+          }
+          100% {
+            transform: rotate(360deg);
+          }
+        }
+      `}</style>
+
+      <div ref={mapContainer} className="w-full h-screen relative" />
+    </div>
+  );
+};
+
+export default MapboxMap;

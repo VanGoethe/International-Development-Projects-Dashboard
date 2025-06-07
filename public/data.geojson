@@ -1,0 +1,195 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {
+                "Country": "Afghanistan",
+                "Region": "Nationwide",
+                "Project Name": "Afghanistan Value Chains – Livestock (AVC-L)",
+                "Sector": "Agriculture & Food Security",
+                "Budget": 55672170,
+                "Implementing Partner": "DAI Global",
+                "Beneficiaries": 50000
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    69.2075,
+                    34.5553
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Country": "Afghanistan",
+                "Region": "Nationwide",
+                "Project Name": "Afghanistan Value Chains – High Value Crops (AVC-HVC)",
+                "Sector": "Agriculture & Food Security",
+                "Budget": 55000000,
+                "Implementing Partner": "DAI Global",
+                "Beneficiaries": 100000
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    69.2075,
+                    34.5553
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Country": "Afghanistan",
+                "Region": "Nationwide",
+                "Project Name": "Agricultural Credit Enhancement II (ACE-II)",
+                "Sector": "Agriculture & Finance",
+                "Budget": 50000000,
+                "Implementing Partner": "DAI Global",
+                "Beneficiaries": 20000
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    69.2075,
+                    34.5553
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Country": "Afghanistan",
+                "Region": "Nationwide",
+                "Project Name": "Promote: Women’s Leadership Development",
+                "Sector": "Education & Women's Empowerment",
+                "Budget": 41959377,
+                "Implementing Partner": "The Asia Foundation",
+                "Beneficiaries": 2500
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    69.2075,
+                    34.5553
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Country": "Afghanistan",
+                "Region": "Nationwide",
+                "Project Name": "Promote: Women in Government",
+                "Sector": "Governance & Women's Empowerment",
+                "Budget": 37997644,
+                "Implementing Partner": "Chemonics International",
+                "Beneficiaries": 3000
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    69.2075,
+                    34.5553
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Country": "Afghanistan",
+                "Region": "Nationwide",
+                "Project Name": "Promote: Women in the Economy",
+                "Sector": "Economic Growth & Women's Empowerment",
+                "Budget": 71571543,
+                "Implementing Partner": "DAI Global",
+                "Beneficiaries": 42000
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    69.2075,
+                    34.5553
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Country": "Afghanistan",
+                "Region": "Nationwide",
+                "Project Name": "Promote: Women in Civil Society",
+                "Sector": "Civil Society & Women's Empowerment",
+                "Budget": 64480000,
+                "Implementing Partner": "Counterpart International",
+                "Beneficiaries": 20000
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    69.2075,
+                    34.5553
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Country": "Afghanistan",
+                "Region": "Kandahar",
+                "Project Name": "Regional Agricultural Development Program – South (RADP-S)",
+                "Sector": "Agriculture & Economic Growth",
+                "Budget": 125000000,
+                "Implementing Partner": "Chemonics International",
+                "Beneficiaries": 150000
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    65.7372,
+                    31.6289
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Country": "Afghanistan",
+                "Region": "Nangarhar",
+                "Project Name": "Regional Agricultural Development Program – East (RADP-E)",
+                "Sector": "Agriculture & Economic Growth",
+                "Budget": 30000000,
+                "Implementing Partner": "DAI Global",
+                "Beneficiaries": 50000
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    70.4649,
+                    34.4345
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Country": "Afghanistan",
+                "Region": "Balkh",
+                "Project Name": "Regional Agricultural Development Program – North (RADP-N)",
+                "Sector": "Agriculture & Economic Growth",
+                "Budget": 78000000,
+                "Implementing Partner": "DAI Global",
+                "Beneficiaries": 120000
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    67.1109,
+                    36.7090
+                ]
+            }
+        }
+    ]
+}
