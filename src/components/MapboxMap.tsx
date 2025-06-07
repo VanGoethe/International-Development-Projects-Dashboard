@@ -6,11 +6,16 @@ import "mapbox-gl/dist/mapbox-gl.css";
 // Types
 interface ProjectProperties {
   "Project Name": string;
+  Country: string;
   Region: string;
   Budget: number;
   Beneficiaries: number;
   Sector: string;
   "Implementing Partner": string;
+  Status?: string;
+  "Start Date"?: string;
+  "End Date"?: string;
+  Description?: string;
 }
 
 interface ProjectFeature {
@@ -27,27 +32,30 @@ interface ProjectData {
   features: ProjectFeature[];
 }
 
-interface BoundaryProperties {
-  shapeName: string;
+interface CountryBoundaryProperties {
+  NAME?: string;
+  NAME_EN?: string;
+  ADMIN?: string;
+  ISO_A3?: string;
+  ADM0_A3?: string;
   feature_id: number;
+  [key: string]: any; // Allow additional properties
 }
 
-interface BoundaryFeature {
+interface CountryBoundaryFeature {
   type: "Feature";
   id: number;
-  properties: BoundaryProperties;
-  geometry: {
-    type: "Polygon";
-    coordinates: number[][][];
-  };
+  properties: CountryBoundaryProperties;
+  geometry: GeoJSON.Polygon | GeoJSON.MultiPolygon;
 }
 
-interface BoundaryData {
+interface CountryBoundaryData {
   type: "FeatureCollection";
-  features: BoundaryFeature[];
+  features: CountryBoundaryFeature[];
 }
 
 interface ProjectLocationProperties {
+  country: string;
   region: string;
   projects: ProjectProperties[];
   totalBudget: number;
@@ -72,10 +80,10 @@ interface ProjectLocationsData {
 
 // Constants
 const MAPBOX_STYLE = "mapbox://styles/mapbox/light-v11";
-const AFGHANISTAN_CENTER: [number, number] = [69.2075, 34.5553];
-const DEFAULT_ZOOM = 5;
-const GEOBOUNDARIES_URL =
-  "https://www.geoboundaries.org/data/geoBoundaries-3_0_0/AFG/ADM1/geoBoundaries-3_0_0-AFG-ADM1.geojson";
+const WORLD_CENTER: [number, number] = [20, 0];
+const DEFAULT_ZOOM = 2;
+const WORLD_BOUNDARIES_URL =
+  "https://raw.githubusercontent.com/datasets/geo-countries/master/data/countries.geojson";
 
 // Set Mapbox access token from environment variable
 mapboxgl.accessToken = process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN || "";
@@ -86,6 +94,8 @@ const MapboxMap: React.FC = () => {
   const [hoveredStateId, setHoveredStateId] = useState<number | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
+  const [selectedCountry, setSelectedCountry] = useState<string | null>(null);
+  const [countries, setCountries] = useState<string[]>([]);
 
   useEffect(() => {
     // Check if Mapbox token is available
@@ -103,7 +113,7 @@ const MapboxMap: React.FC = () => {
     map.current = new mapboxgl.Map({
       container: mapContainer.current,
       style: MAPBOX_STYLE,
-      center: AFGHANISTAN_CENTER,
+      center: WORLD_CENTER,
       zoom: DEFAULT_ZOOM,
       projection: "mercator",
     });
@@ -121,7 +131,7 @@ const MapboxMap: React.FC = () => {
         // Fetch data
         const [projectResponse, boundariesResponse] = await Promise.all([
           fetch("/data.geojson"),
-          fetch(GEOBOUNDARIES_URL),
+          fetch(WORLD_BOUNDARIES_URL),
         ]);
 
         if (!projectResponse.ok) {
@@ -135,31 +145,44 @@ const MapboxMap: React.FC = () => {
           );
         }
 
-        const [projectData, boundariesData]: [ProjectData, BoundaryData] =
-          await Promise.all([
-            projectResponse.json(),
-            boundariesResponse.json(),
-          ]);
+        const [projectData, boundariesData]: [
+          ProjectData,
+          CountryBoundaryData
+        ] = await Promise.all([
+          projectResponse.json(),
+          boundariesResponse.json(),
+        ]);
 
         console.log("Data loaded successfully");
 
+        // Extract unique countries from project data
+        const uniqueCountries = [
+          ...new Set(projectData.features.map((f) => f.properties.Country)),
+        ];
+        setCountries(uniqueCountries);
+
         // Process boundaries data
-        const processedBoundaries: BoundaryData = {
+        const processedBoundaries: CountryBoundaryData = {
           ...boundariesData,
           features: boundariesData.features.map(
-            (feature, index): BoundaryFeature => ({
+            (feature, index): CountryBoundaryFeature => ({
               ...feature,
               id: index,
               properties: {
                 ...feature.properties,
                 feature_id: index,
+                NAME:
+                  feature.properties.NAME_EN ||
+                  feature.properties.NAME ||
+                  feature.properties.ADMIN,
+                ISO_A3: feature.properties.ISO_A3 || feature.properties.ADM0_A3,
               },
             })
           ),
         };
 
         // Add sources
-        map.current!.addSource("afghanistan-boundaries", {
+        map.current!.addSource("world-boundaries", {
           type: "geojson",
           data: processedBoundaries,
           generateId: false,
@@ -169,8 +192,8 @@ const MapboxMap: React.FC = () => {
         addMapLayers();
 
         // Process and add project data
-        const projectsByRegion = processProjectData(projectData);
-        addProjectLayers(projectsByRegion);
+        const projectsByCountryRegion = processProjectData(projectData);
+        addProjectLayers(projectsByCountryRegion);
 
         // Add event listeners
         addMapEventListeners(projectData);
@@ -198,41 +221,41 @@ const MapboxMap: React.FC = () => {
   const addMapLayers = () => {
     if (!map.current) return;
 
-    // Province fill layer
+    // Country fill layer
     map.current.addLayer({
-      id: "afghanistan-fills",
+      id: "world-fills",
       type: "fill",
-      source: "afghanistan-boundaries",
+      source: "world-boundaries",
       layout: {},
       paint: {
-        "fill-color": "#f8d5cc",
-        "fill-opacity": 0.4,
-        "fill-outline-color": "#d3a79d",
+        "fill-color": "#f8f9fa",
+        "fill-opacity": 0.2,
+        "fill-outline-color": "#dee2e6",
       },
     });
 
     // Hover layer
     map.current.addLayer({
-      id: "afghanistan-hover",
+      id: "world-hover",
       type: "fill",
-      source: "afghanistan-boundaries",
+      source: "world-boundaries",
       layout: {},
       filter: ["==", ["get", "feature_id"], -1],
       paint: {
         "fill-color": "#e63946",
         "fill-opacity": 0.7,
-        "fill-outline-color": "#d3a79d",
+        "fill-outline-color": "#dee2e6",
       },
     });
 
     // Border layer
     map.current.addLayer({
-      id: "afghanistan-borders",
+      id: "world-borders",
       type: "line",
-      source: "afghanistan-boundaries",
+      source: "world-boundaries",
       layout: {},
       paint: {
-        "line-color": "#8c6b63",
+        "line-color": "#6c757d",
         "line-width": 1,
         "line-opacity": 0.8,
       },
@@ -240,11 +263,11 @@ const MapboxMap: React.FC = () => {
 
     // Labels layer
     map.current.addLayer({
-      id: "province-labels",
+      id: "country-labels",
       type: "symbol",
-      source: "afghanistan-boundaries",
+      source: "world-boundaries",
       layout: {
-        "text-field": ["get", "shapeName"],
+        "text-field": ["get", "NAME"],
         "text-font": ["Open Sans Bold"],
         "text-size": 12,
         "text-allow-overlap": false,
@@ -259,7 +282,7 @@ const MapboxMap: React.FC = () => {
   };
 
   const processProjectData = (projectData: ProjectData) => {
-    const projectsByRegion: Record<
+    const projectsByCountryRegion: Record<
       string,
       {
         projects: ProjectProperties[];
@@ -272,9 +295,9 @@ const MapboxMap: React.FC = () => {
     > = {};
 
     projectData.features.forEach((feature) => {
-      const region = feature.properties.Region;
-      if (!projectsByRegion[region]) {
-        projectsByRegion[region] = {
+      const country = feature.properties.Country;
+      if (!projectsByCountryRegion[country]) {
+        projectsByCountryRegion[country] = {
           projects: [feature.properties],
           totalBudget: feature.properties.Budget,
           totalBeneficiaries: feature.properties.Beneficiaries,
@@ -283,40 +306,41 @@ const MapboxMap: React.FC = () => {
           coordinates: feature.geometry.coordinates,
         };
       } else {
-        const regionData = projectsByRegion[region];
-        regionData.projects.push(feature.properties);
-        regionData.totalBudget += feature.properties.Budget;
-        regionData.totalBeneficiaries += feature.properties.Beneficiaries;
+        const countryData = projectsByCountryRegion[country];
+        countryData.projects.push(feature.properties);
+        countryData.totalBudget += feature.properties.Budget;
+        countryData.totalBeneficiaries += feature.properties.Beneficiaries;
 
-        if (!regionData.sectors.includes(feature.properties.Sector)) {
-          regionData.sectors.push(feature.properties.Sector);
+        if (!countryData.sectors.includes(feature.properties.Sector)) {
+          countryData.sectors.push(feature.properties.Sector);
         }
 
         if (
-          !regionData.partners.includes(
+          !countryData.partners.includes(
             feature.properties["Implementing Partner"]
           )
         ) {
-          regionData.partners.push(feature.properties["Implementing Partner"]);
+          countryData.partners.push(feature.properties["Implementing Partner"]);
         }
       }
     });
 
-    return projectsByRegion;
+    return projectsByCountryRegion;
   };
 
   const addProjectLayers = (
-    projectsByRegion: ReturnType<typeof processProjectData>
+    projectsByCountryRegion: ReturnType<typeof processProjectData>
   ) => {
     if (!map.current) return;
 
     const projectLocations: ProjectLocationsData = {
       type: "FeatureCollection",
-      features: Object.entries(projectsByRegion).map(
-        ([region, data]): ProjectLocationFeature => ({
+      features: Object.entries(projectsByCountryRegion).map(
+        ([country, data]): ProjectLocationFeature => ({
           type: "Feature",
           properties: {
-            region,
+            country,
+            region: "Global",
             projects: data.projects,
             totalBudget: data.totalBudget,
             totalBeneficiaries: data.totalBeneficiaries,
@@ -354,12 +378,12 @@ const MapboxMap: React.FC = () => {
     if (!map.current) return;
 
     // Mouse move handler
-    map.current.on("mousemove", "afghanistan-fills", (e) => {
+    map.current.on("mousemove", "world-fills", (e) => {
       if (!map.current || !e.features?.length) return;
 
       try {
         if (hoveredStateId !== null) {
-          map.current.setFilter("afghanistan-hover", [
+          map.current.setFilter("world-hover", [
             "==",
             ["get", "feature_id"],
             -1,
@@ -367,11 +391,7 @@ const MapboxMap: React.FC = () => {
         }
 
         const id = e.features[0].id || 0;
-        map.current.setFilter("afghanistan-hover", [
-          "==",
-          ["get", "feature_id"],
-          id,
-        ]);
+        map.current.setFilter("world-hover", ["==", ["get", "feature_id"], id]);
         setHoveredStateId(id as number);
         map.current.getCanvas().style.cursor = "pointer";
       } catch (error) {
@@ -380,12 +400,12 @@ const MapboxMap: React.FC = () => {
     });
 
     // Mouse leave handler
-    map.current.on("mouseleave", "afghanistan-fills", () => {
+    map.current.on("mouseleave", "world-fills", () => {
       if (!map.current) return;
 
       try {
         if (hoveredStateId !== null) {
-          map.current.setFilter("afghanistan-hover", [
+          map.current.setFilter("world-hover", [
             "==",
             ["get", "feature_id"],
             -1,
@@ -398,14 +418,14 @@ const MapboxMap: React.FC = () => {
       }
     });
 
-    // Province click handler
-    map.current.on("click", "afghanistan-fills", (e) => {
+    // Country click handler
+    map.current.on("click", "world-fills", (e) => {
       if (!map.current || !e.features?.length) return;
 
       try {
-        handleProvinceClick(e, projectData);
+        handleCountryClick(e, projectData);
       } catch (error) {
-        console.error("Error in province click handler:", error);
+        console.error("Error in country click handler:", error);
       }
     });
 
@@ -416,7 +436,7 @@ const MapboxMap: React.FC = () => {
     });
   };
 
-  const handleProvinceClick = (
+  const handleCountryClick = (
     e: mapboxgl.MapMouseEvent,
     projectData: ProjectData
   ) => {
@@ -427,18 +447,18 @@ const MapboxMap: React.FC = () => {
     Array.from(existingPopups).forEach((popup) => popup.remove());
 
     const feature = e.features[0] as mapboxgl.MapboxGeoJSONFeature;
-    const provinceName = feature.properties?.shapeName || "Unknown Province";
+    const countryName = feature.properties?.NAME || "Unknown Country";
     const featureId = feature.id || feature.properties?.feature_id;
 
     // Find matching projects
     const matchingProjects = projectData.features.filter((project) =>
-      project.properties.Region.toLowerCase().includes(
-        provinceName.toLowerCase()
+      project.properties.Country.toLowerCase().includes(
+        countryName.toLowerCase()
       )
     );
 
     if (matchingProjects.length === 0) {
-      console.log(`No projects found in ${provinceName}`);
+      console.log(`No projects found in ${countryName}`);
       return;
     }
 
@@ -446,7 +466,7 @@ const MapboxMap: React.FC = () => {
     const stats = calculateProjectStats(matchingProjects);
 
     // Create popup content
-    const html = createPopupHTML(provinceName, matchingProjects, stats);
+    const html = createPopupHTML(countryName, matchingProjects, stats);
 
     // Position and show popup
     showPopup(feature, html, featureId);
@@ -522,7 +542,7 @@ const MapboxMap: React.FC = () => {
   };
 
   const createPopupHTML = (
-    provinceName: string,
+    countryName: string,
     projects: ProjectFeature[],
     stats: ReturnType<typeof calculateProjectStats>
   ): string => {
@@ -540,7 +560,7 @@ const MapboxMap: React.FC = () => {
 
     return `
       <div class="popup-content">
-        <h3 class="popup-title">${provinceName}</h3>
+        <h3 class="popup-title">${countryName}</h3>
         <div class="popup-body">
           <div class="popup-stats">
             <div class="stat-item">
@@ -598,7 +618,7 @@ const MapboxMap: React.FC = () => {
 
     return `
       <div class="popup-content">
-        <h3 class="popup-title">${properties.region}</h3>
+        <h3 class="popup-title">${properties.country}</h3>
         <div class="popup-body">
           <div class="popup-stats">
             <div class="stat-item">
@@ -667,8 +687,8 @@ const MapboxMap: React.FC = () => {
       duration: 1000,
     });
 
-    // Highlight province
-    map.current.setFilter("afghanistan-hover", [
+    // Highlight country
+    map.current.setFilter("world-hover", [
       "==",
       ["get", "feature_id"],
       featureId,
@@ -676,8 +696,80 @@ const MapboxMap: React.FC = () => {
     setHoveredStateId(featureId as number);
   };
 
+  const focusOnCountry = (countryName: string) => {
+    if (!map.current) return;
+
+    setSelectedCountry(countryName);
+
+    // Find country bounds and center map
+    // For now, we'll use a simple approach - in production, you'd want to calculate actual bounds
+    const countryCoordinates: Record<
+      string,
+      { center: [number, number]; zoom: number }
+    > = {
+      Afghanistan: { center: [69.2075, 34.5553], zoom: 5 },
+      Iraq: { center: [44.0, 33.0], zoom: 5 },
+      Syria: { center: [38.0, 35.0], zoom: 6 },
+      Yemen: { center: [47.0, 15.5], zoom: 6 },
+      Ukraine: { center: [31.0, 49.0], zoom: 5 },
+      Somalia: { center: [46.0, 5.0], zoom: 5 },
+      Ethiopia: { center: [40.0, 9.0], zoom: 5 },
+      Kenya: { center: [37.9, -0.03], zoom: 5 },
+    };
+
+    const countryData = countryCoordinates[countryName];
+    if (countryData) {
+      map.current.easeTo({
+        center: countryData.center,
+        zoom: countryData.zoom,
+        duration: 1500,
+      });
+    }
+  };
+
+  const resetView = () => {
+    if (!map.current) return;
+
+    setSelectedCountry(null);
+    map.current.easeTo({
+      center: WORLD_CENTER,
+      zoom: DEFAULT_ZOOM,
+      duration: 1500,
+    });
+  };
+
   return (
     <div className="map-container">
+      {/* Country Filter Controls */}
+      <div className="absolute top-4 left-4 z-10 bg-white/90 backdrop-blur-sm rounded-lg p-4 shadow-lg max-w-xs">
+        <h3 className="font-semibold text-gray-800 mb-2">Filter by Country</h3>
+        <div className="space-y-2">
+          <button
+            onClick={resetView}
+            className={`w-full text-left px-3 py-2 rounded-md text-sm transition-colors ${
+              selectedCountry === null
+                ? "bg-blue-500 text-white"
+                : "bg-gray-100 hover:bg-gray-200 text-gray-700"
+            }`}
+          >
+            🌍 All Countries
+          </button>
+          {countries.map((country) => (
+            <button
+              key={country}
+              onClick={() => focusOnCountry(country)}
+              className={`w-full text-left px-3 py-2 rounded-md text-sm transition-colors ${
+                selectedCountry === country
+                  ? "bg-blue-500 text-white"
+                  : "bg-gray-100 hover:bg-gray-200 text-gray-700"
+              }`}
+            >
+              📍 {country}
+            </button>
+          ))}
+        </div>
+      </div>
+
       {error ? (
         <div className="map-error">
           <div className="error-content">

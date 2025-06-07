@@ -1,31 +1,82 @@
-// Configuration constants for the Afghanistan Development Projects Dashboard
+// Configuration constants for the International Development Projects Dashboard
 
 export const MAP_CONFIG = {
   // Mapbox configuration
   STYLE: "mapbox://styles/mapbox/light-v11",
-  CENTER: [69.2075, 34.5553] as [number, number], // Afghanistan center
-  DEFAULT_ZOOM: 5,
+  DEFAULT_CENTER: [20, 0] as [number, number], // World center
+  DEFAULT_ZOOM: 2,
   PROJECTION: "mercator" as const,
 
+  // Country-specific configurations
+  COUNTRIES: {
+    AFG: {
+      NAME: "Afghanistan",
+      CENTER: [69.2075, 34.5553] as [number, number],
+      ZOOM: 5,
+      GEOBOUNDARIES_URL:
+        "https://www.geoboundaries.org/data/geoBoundaries-3_0_0/AFG/ADM1/geoBoundaries-3_0_0-AFG-ADM1.geojson",
+    },
+    IRQ: {
+      NAME: "Iraq",
+      CENTER: [44.0, 33.0] as [number, number],
+      ZOOM: 5,
+      GEOBOUNDARIES_URL:
+        "https://www.geoboundaries.org/data/geoBoundaries-3_0_0/IRQ/ADM1/geoBoundaries-3_0_0-IRQ-ADM1.geojson",
+    },
+    SYR: {
+      NAME: "Syria",
+      CENTER: [38.0, 35.0] as [number, number],
+      ZOOM: 6,
+      GEOBOUNDARIES_URL:
+        "https://www.geoboundaries.org/data/geoBoundaries-3_0_0/SYR/ADM1/geoBoundaries-3_0_0-SYR-ADM1.geojson",
+    },
+    YEM: {
+      NAME: "Yemen",
+      CENTER: [47.0, 15.5] as [number, number],
+      ZOOM: 6,
+      GEOBOUNDARIES_URL:
+        "https://www.geoboundaries.org/data/geoBoundaries-3_0_0/YEM/ADM1/geoBoundaries-3_0_0-YEM-ADM1.geojson",
+    },
+    UKR: {
+      NAME: "Ukraine",
+      CENTER: [31.0, 49.0] as [number, number],
+      ZOOM: 5,
+      GEOBOUNDARIES_URL:
+        "https://www.geoboundaries.org/data/geoBoundaries-3_0_0/UKR/ADM1/geoBoundaries-3_0_0-UKR-ADM1.geojson",
+    },
+  },
+
   // Data sources
-  GEOBOUNDARIES_URL:
-    "https://www.geoboundaries.org/data/geoBoundaries-3_0_0/AFG/ADM1/geoBoundaries-3_0_0-AFG-ADM1.geojson",
   PROJECT_DATA_URL: "/data.geojson",
+  WORLD_BOUNDARIES_URL:
+    "https://raw.githubusercontent.com/datasets/geo-countries/master/data/countries.geojson",
+
+  // External APIs for future integration
+  APIS: {
+    IATI_DATASTORE: "https://api.iatistandard.org/datastore/",
+    USAID_DDL: "https://data.usaid.gov/",
+    FOREIGN_ASSISTANCE: "https://foreignassistance.gov/api/",
+  },
 
   // Layer styling
   COLORS: {
-    PROVINCE_FILL: "#f8d5cc",
-    PROVINCE_OUTLINE: "#d3a79d",
-    PROVINCE_BORDER: "#8c6b63",
+    COUNTRY_FILL: "#f8f9fa",
+    COUNTRY_OUTLINE: "#dee2e6",
+    COUNTRY_BORDER: "#6c757d",
     HOVER_FILL: "#e63946",
     PROJECT_POINT: "#e63946",
     BUDGET: "#4caf50",
     BENEFICIARIES: "#2196f3",
+    // Status colors
+    ACTIVE: "#28a745",
+    PAUSED: "#ffc107",
+    CANCELLED: "#dc3545",
+    COMPLETED: "#6c757d",
   },
 
   // Layer opacity
   OPACITY: {
-    PROVINCE_FILL: 0.4,
+    COUNTRY_FILL: 0.2,
     HOVER_FILL: 0.7,
     BORDER: 0.8,
     PROJECT_POINT: 0.8,
@@ -38,10 +89,19 @@ export const MAP_CONFIG = {
 } as const;
 
 export const APP_METADATA = {
-  TITLE: "Afghanistan Development Projects Dashboard",
+  TITLE: "International Development Projects Dashboard",
   DESCRIPTION:
-    "Interactive map visualization showing development projects and their impact across Afghanistan's provinces",
+    "Interactive map visualization showing development projects and their impact across multiple countries",
 } as const;
+
+// Utility functions
+export const getCountryConfig = (iso3Code: string) => {
+  return MAP_CONFIG.COUNTRIES[iso3Code as keyof typeof MAP_CONFIG.COUNTRIES];
+};
+
+export const getAllCountryCodes = () => {
+  return Object.keys(MAP_CONFIG.COUNTRIES);
+};
 
 // Environment variables with fallbacks
 export const ENV = {

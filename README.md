@@ -1,23 +1,45 @@
-# 🗺️ Afghanistan Development Projects Dashboard
+# International Development Projects Dashboard 🌍
 
-An interactive web-based map visualization showing development projects and their impact across Afghanistan's provinces. Built with Next.js, TypeScript, and Mapbox GL JS following modern frontend development best practices.
+An interactive map visualization showing the impact of international development projects and foreign aid across multiple countries. This dashboard helps track funding cuts, project status, and beneficiary impacts in regions affected by policy changes.
+
+![Dashboard Preview](https://via.placeholder.com/800x400/2563eb/ffffff?text=International+Development+Dashboard)
 
 ## ✨ Features
 
-- **Interactive Province Maps**: Click on provinces to view detailed project information
-- **Project Visualization**: See project locations with budget and beneficiary data
-- **Real-time Data Loading**: Smooth loading indicators for better UX
-- **Responsive Design**: Optimized for desktop and mobile devices
-- **Modern UI**: Glass-morphism design with dark theme popups
-- **Type Safety**: Full TypeScript implementation with proper type definitions
+### 🗺️ Interactive Global Map
 
-## 🚀 Quick Start
+- **World View**: Start with a global perspective of all development projects
+- **Country Focus**: Click any country or use the filter panel to zoom into specific regions
+- **Project Visualization**: Each dot represents a development project with detailed information
+
+### 📊 Comprehensive Data Tracking
+
+- **Multi-Country Support**: Track projects across 8+ countries including Afghanistan, Iraq, Syria, Yemen, Ukraine, Somalia, Ethiopia, and Kenya
+- **Budget & Beneficiaries**: Real-time tracking of project budgets and affected populations
+- **Sector Analysis**: Projects categorized by development sectors (Health, Education, Infrastructure, etc.)
+- **Status Monitoring**: Track project status (Active, Paused, Cancelled, Completed)
+
+### 🎯 Advanced Filtering & Navigation
+
+- **Country Filter Panel**: Easy selection of specific countries or global view
+- **Interactive Popups**: Detailed project information with glassmorphism styling
+- **Smooth Animations**: Seamless transitions between countries and zoom levels
+- **Responsive Design**: Works across desktop, tablet, and mobile devices
+
+### 📈 Impact Visualization
+
+- **Budget Tracking**: Visual representation of funding amounts across regions
+- **Beneficiary Counts**: Track how many people are affected by each project
+- **Implementing Partners**: See which organizations are delivering aid
+- **Geographic Distribution**: Understand where aid is concentrated
+
+## 🚀 Getting Started
 
 ### Prerequisites
 
 - Node.js 18+
 - npm or yarn
-- Mapbox Access Token
+- Mapbox API token
 
 ### Installation
 
@@ -25,7 +47,7 @@ An interactive web-based map visualization showing development projects and thei
 
    ```bash
    git clone <repository-url>
-   cd interactive-mapbox-map
+   cd international-development-dashboard
    ```
 
 2. **Install dependencies**
@@ -35,176 +57,208 @@ An interactive web-based map visualization showing development projects and thei
    ```
 
 3. **Set up environment variables**
-   Create a `.env.local` file in the root directory:
 
-   ```env
-   NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN=your_mapbox_token_here
+   ```bash
+   cp .env.example .env.local
    ```
 
-4. **Run the development server**
+   Add your Mapbox token to `.env.local`:
+
+   ```env
+   NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN=pk.your_token_here
+   ```
+
+4. **Generate sample data**
+
+   ```bash
+   npm run generate-data
+   ```
+
+5. **Start the development server**
 
    ```bash
    npm run dev
    ```
 
-5. **Open your browser**
+6. **Open your browser**
    Navigate to [http://localhost:3000](http://localhost:3000)
 
-## 🏗️ Project Structure
+## 📁 Project Structure
 
 ```
 ├── src/
-│   ├── app/                    # Next.js App Router
-│   │   ├── globals.css        # Global styles and Tailwind imports
-│   │   ├── layout.tsx         # Root layout component
-│   │   └── page.tsx           # Home page component
-│   ├── components/            # React components
-│   │   └── MapboxMap.tsx      # Main map component (TypeScript)
-│   └── lib/                   # Utilities and configuration
-│       └── config.ts          # Centralized configuration constants
-├── public/                    # Static assets
-│   └── data.geojson          # Project data
-├── package.json              # Dependencies and scripts
-└── README.md                 # Project documentation
+│   ├── components/
+│   │   └── MapboxMap.tsx          # Main map component
+│   ├── lib/
+│   │   └── config.ts              # Configuration & constants
+│   ├── app/
+│   │   ├── page.tsx               # Main dashboard page
+│   │   ├── layout.tsx             # App layout
+│   │   └── globals.css            # Global styles
+├── scripts/
+│   └── generate-data.js           # Data generation script
+├── public/
+│   └── data.geojson              # Project data (generated)
+└── README.md
 ```
 
-## 🛠️ Technical Implementation
+## 🛠️ Technology Stack
 
-### Architecture Decisions
+### Frontend
 
-- **TypeScript**: Full type safety with proper interfaces for GeoJSON data
-- **Component Structure**: Modular design with separated concerns
-- **Configuration Management**: Centralized constants in `src/lib/config.ts`
-- **Environment Variables**: Secure API token management
-- **CSS Organization**: Global styles with Tailwind CSS integration
-- **Error Handling**: Comprehensive error handling and user feedback
+- **Next.js 15** - React framework with app router
+- **TypeScript** - Type-safe development
+- **Tailwind CSS** - Utility-first styling
+- **Mapbox GL JS** - Interactive maps
 
-### Key Components
+### Data & APIs
 
-#### MapboxMap Component
+- **GeoJSON** - Geographic data format
+- **IATI Standard** - International aid transparency
+- **REST APIs** - USAID, World Bank, UN data sources
 
-- **Type-safe**: Proper TypeScript interfaces for all data structures
-- **Modular Methods**: Separated data processing, layer management, and event handling
-- **Performance Optimized**: Efficient data fetching with Promise.all()
-- **Error Resilient**: Graceful error handling with user feedback
+### Development
 
-#### Data Processing
+- **ESLint** - Code quality
+- **Hot Reload** - Fast development
+- **Responsive Design** - Mobile-first approach
 
-- **Async Data Loading**: Parallel fetching of boundary and project data
-- **Data Transformation**: Proper GeoJSON processing with unique IDs
-- **Statistics Calculation**: Real-time aggregation of budget and beneficiary data
+## 📊 Data Sources & Integration
 
-### Styling Architecture
+### Current Data Sources
 
-- **Tailwind CSS**: Utility-first CSS framework for rapid development
-- **CSS Modules**: Component-scoped styles where needed
-- **Glass-morphism**: Modern UI design with backdrop filters
-- **Responsive Design**: Mobile-first approach with breakpoints
+- **Generated Sample Data**: Realistic development project data across 8 countries
+- **GeoBoundaries**: Administrative boundary data for accurate mapping
+- **World Bank Open Data**: Country-level statistics and indicators
 
-## 📊 Data Sources
+### Future API Integrations
 
-- **Project Data**: `/public/data.geojson` - Development project information
-- **Administrative Boundaries**: [geoBoundaries](https://www.geoboundaries.org/) - Afghanistan province boundaries
-- **Base Map**: Mapbox Light style for optimal data visualization
+- **IATI Datastore**: International Aid Transparency Initiative data
+- **USAID Development Data Library**: Official US development assistance data
+- **ForeignAssistance.gov**: Comprehensive US foreign aid tracking
+- **UN OCHA**: Humanitarian data and crisis information
+
+## 🌍 Supported Countries
+
+Currently tracking development projects in:
+
+| Country        | Projects | Focus Areas                        | Status             |
+| -------------- | -------- | ---------------------------------- | ------------------ |
+| 🇦🇫 Afghanistan | 20+      | Agriculture, Health, Education     | Emergency Response |
+| 🇮🇶 Iraq        | 20+      | Infrastructure, Governance         | Reconstruction     |
+| 🇸🇾 Syria       | 15+      | Humanitarian Aid, Health           | Crisis Response    |
+| 🇾🇪 Yemen       | 9+       | Food Security, Water               | Emergency Aid      |
+| 🇺🇦 Ukraine     | 16+      | Emergency Response, Infrastructure | Conflict Support   |
+| 🇸🇴 Somalia     | 15+      | Food Security, Health              | Humanitarian       |
+| 🇪🇹 Ethiopia    | 10+      | Agriculture, Education             | Development        |
+| 🇰🇪 Kenya       | 13+      | Economic Growth, Health            | Development        |
 
 ## 🎨 UI/UX Features
 
 ### Interactive Elements
 
-- **Province Hover Effects**: Visual feedback on mouse interaction
-- **Smart Popups**: Positioned to avoid overlap with map features
-- **Loading States**: Clear indicators for data loading processes
-- **Responsive Popups**: Adaptive sizing for different screen sizes
+- **Country Filter Panel**: Intuitive country selection with visual feedback
+- **Smart Popups**: Context-aware information displays with consistent styling
+- **Smooth Transitions**: Animated map movements and zoom controls
+- **Loading States**: Clear progress indicators for data loading
 
 ### Design System
 
-- **Color Palette**: Consistent color scheme for data categories
-- **Typography**: System fonts for optimal performance
-- **Spacing**: Consistent spacing using Tailwind utilities
-- **Animations**: Smooth transitions and loading spinners
+- **Glassmorphism**: Modern translucent card designs
+- **Consistent Colors**: Status-based color coding for projects
+- **Typography**: Clean, readable fonts optimized for data display
+- **Responsive Layout**: Adaptive design for all screen sizes
 
-## 🔧 Configuration
+### Accessibility
 
-### Environment Variables
+- **Keyboard Navigation**: Full keyboard support for all interactions
+- **Screen Reader Support**: Semantic HTML and ARIA labels
+- **High Contrast**: Accessible color combinations
+- **Focus Indicators**: Clear visual focus states
 
-```env
-NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN=pk.your_token_here
-NODE_ENV=production|development
-```
+## 🔧 Configuration & Customization
 
-### Map Configuration
+### Adding New Countries
 
-Located in `src/lib/config.ts`:
+1. Update `COUNTRIES` configuration in `scripts/generate-data.js`
+2. Add country-specific data sources
+3. Configure map bounds and zoom levels
+4. Update styling and color schemes
 
-- Map style and center coordinates
-- Layer colors and opacity settings
-- Data source URLs
-- UI configuration options
+### Data Integration
 
-## 🚀 Deployment
+1. **API Configuration**: Update `src/lib/config.ts` with new data sources
+2. **Data Processing**: Modify data transformation logic in `MapboxMap.tsx`
+3. **Schema Updates**: Extend TypeScript interfaces for new data fields
 
-### Build for Production
+### Styling Customization
 
-```bash
-npm run build
-npm start
-```
+1. **Colors**: Update color schemes in `src/lib/config.ts`
+2. **Layouts**: Modify component styles in `src/app/globals.css`
+3. **Animations**: Adjust transition timings and effects
 
-### Environment Setup
+## 📈 Performance & Scalability
 
-1. Set up production environment variables
-2. Configure your hosting platform
-3. Ensure Mapbox token is properly configured
+### Optimization Features
 
-### Performance Considerations
+- **Efficient Data Loading**: Parallel fetching of map and project data
+- **Smart Rendering**: Optimized Mapbox layer management
+- **Memory Management**: Proper cleanup of map resources
+- **Bundle Optimization**: Tree shaking and code splitting
 
-- Optimized bundle size with tree shaking
-- Lazy loading of map data
-- Efficient re-rendering with React hooks
-- Compressed assets and images
+### Scalability Considerations
 
-## 🧪 Development
-
-### Available Scripts
-
-- `npm run dev` - Start development server
-- `npm run build` - Build for production
-- `npm run start` - Start production server
-- `npm run lint` - Run ESLint
-
-### Code Quality
-
-- **TypeScript**: Full type coverage
-- **ESLint**: Code quality and consistency
-- **Prettier**: Code formatting (recommended)
-- **Git Hooks**: Pre-commit quality checks (recommended)
-
-## 📱 Browser Support
-
-- Chrome/Chromium 88+
-- Firefox 85+
-- Safari 14+
-- Edge 88+
+- **Modular Architecture**: Extensible component structure
+- **Type Safety**: Full TypeScript coverage for maintainability
+- **Configuration Management**: Centralized settings for easy updates
+- **Error Handling**: Comprehensive error boundaries and fallbacks
 
 ## 🤝 Contributing
 
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes with proper TypeScript types
-4. Test thoroughly
-5. Submit a pull request
+### Development Workflow
+
+1. **Fork the repository**
+2. **Create a feature branch**: `git checkout -b feature/amazing-feature`
+3. **Make your changes** with proper TypeScript types
+4. **Test thoroughly** across different countries and zoom levels
+5. **Submit a pull request** with detailed description
+
+### Code Quality
+
+- Follow TypeScript best practices
+- Use semantic commit messages
+- Test on multiple devices and browsers
+- Ensure accessibility compliance
 
 ## 📄 License
 
 This project is open source and available under the [MIT License](LICENSE).
 
-## 🙏 Acknowledgments
+## 🙏 Acknowledgments & Data Sources
 
-- [Mapbox](https://www.mapbox.com/) for mapping services
-- [geoBoundaries](https://www.geoboundaries.org/) for administrative boundary data
-- [Next.js](https://nextjs.org/) for the React framework
-- [Tailwind CSS](https://tailwindcss.com/) for styling utilities
+### Data Providers
+
+- **International Aid Transparency Initiative (IATI)** - Development project standards
+- **USAID Development Data Library** - US development assistance data
+- **World Bank Open Data** - Global development indicators
+- **GeoBoundaries** - Administrative boundary data
+- **UN OCHA** - Humanitarian crisis information
+
+### Inspiration
+
+- **The Impact Project** by Abby André - Tracking federal funding impacts
+- **USAID Transparency Dashboard** - Government aid transparency
+- **Development Finance Data Portal** - Multi-donor tracking systems
+
+### Technology Credits
+
+- **Mapbox** - Interactive mapping platform
+- **Next.js** - React framework
+- **Tailwind CSS** - Utility-first CSS framework
+- **TypeScript** - Type-safe JavaScript
 
 ---
 
-Built with ❤️ for humanitarian development tracking in Afghanistan.
+**🌍 Making foreign aid impacts visible, one map at a time.**
+
+For questions, suggestions, or collaboration opportunities, please [open an issue](https://github.com/your-repo/issues) or contact the development team.

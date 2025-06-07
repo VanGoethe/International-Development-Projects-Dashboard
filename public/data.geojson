@@ -1,195 +1,2719 @@
 {
-    "type": "FeatureCollection",
-    "features": [
-        {
-            "type": "Feature",
-            "properties": {
-                "Country": "Afghanistan",
-                "Region": "Nationwide",
-                "Project Name": "Afghanistan Value Chains – Livestock (AVC-L)",
-                "Sector": "Agriculture & Food Security",
-                "Budget": 55672170,
-                "Implementing Partner": "DAI Global",
-                "Beneficiaries": 50000
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    69.2075,
-                    34.5553
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "Country": "Afghanistan",
-                "Region": "Nationwide",
-                "Project Name": "Afghanistan Value Chains – High Value Crops (AVC-HVC)",
-                "Sector": "Agriculture & Food Security",
-                "Budget": 55000000,
-                "Implementing Partner": "DAI Global",
-                "Beneficiaries": 100000
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    69.2075,
-                    34.5553
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "Country": "Afghanistan",
-                "Region": "Nationwide",
-                "Project Name": "Agricultural Credit Enhancement II (ACE-II)",
-                "Sector": "Agriculture & Finance",
-                "Budget": 50000000,
-                "Implementing Partner": "DAI Global",
-                "Beneficiaries": 20000
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    69.2075,
-                    34.5553
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "Country": "Afghanistan",
-                "Region": "Nationwide",
-                "Project Name": "Promote: Women’s Leadership Development",
-                "Sector": "Education & Women's Empowerment",
-                "Budget": 41959377,
-                "Implementing Partner": "The Asia Foundation",
-                "Beneficiaries": 2500
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    69.2075,
-                    34.5553
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "Country": "Afghanistan",
-                "Region": "Nationwide",
-                "Project Name": "Promote: Women in Government",
-                "Sector": "Governance & Women's Empowerment",
-                "Budget": 37997644,
-                "Implementing Partner": "Chemonics International",
-                "Beneficiaries": 3000
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    69.2075,
-                    34.5553
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "Country": "Afghanistan",
-                "Region": "Nationwide",
-                "Project Name": "Promote: Women in the Economy",
-                "Sector": "Economic Growth & Women's Empowerment",
-                "Budget": 71571543,
-                "Implementing Partner": "DAI Global",
-                "Beneficiaries": 42000
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    69.2075,
-                    34.5553
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "Country": "Afghanistan",
-                "Region": "Nationwide",
-                "Project Name": "Promote: Women in Civil Society",
-                "Sector": "Civil Society & Women's Empowerment",
-                "Budget": 64480000,
-                "Implementing Partner": "Counterpart International",
-                "Beneficiaries": 20000
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    69.2075,
-                    34.5553
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "Country": "Afghanistan",
-                "Region": "Kandahar",
-                "Project Name": "Regional Agricultural Development Program – South (RADP-S)",
-                "Sector": "Agriculture & Economic Growth",
-                "Budget": 125000000,
-                "Implementing Partner": "Chemonics International",
-                "Beneficiaries": 150000
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    65.7372,
-                    31.6289
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "Country": "Afghanistan",
-                "Region": "Nangarhar",
-                "Project Name": "Regional Agricultural Development Program – East (RADP-E)",
-                "Sector": "Agriculture & Economic Growth",
-                "Budget": 30000000,
-                "Implementing Partner": "DAI Global",
-                "Beneficiaries": 50000
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    70.4649,
-                    34.4345
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "Country": "Afghanistan",
-                "Region": "Balkh",
-                "Project Name": "Regional Agricultural Development Program – North (RADP-N)",
-                "Sector": "Agriculture & Economic Growth",
-                "Budget": 78000000,
-                "Implementing Partner": "DAI Global",
-                "Beneficiaries": 120000
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    67.1109,
-                    36.7090
-                ]
-            }
-        }
-    ]
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "Country": "Afghanistan",
+        "Region": "Kunduz",
+        "Project Name": "Food Security Initiative",
+        "Sector": "Peace & Security",
+        "Budget": 5524519,
+        "Implementing Partner": "World Health Organization",
+        "Beneficiaries": 5873,
+        "Status": "Completed",
+        "Start Date": "2020-10-01",
+        "End Date": "2025-08-15",
+        "Description": "Development project focusing on education & training in Kunduz, Afghanistan."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          66.7977862584567,
+          35.626712566269674
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Country": "Afghanistan",
+        "Region": "Kunduz",
+        "Project Name": "Development Support Program",
+        "Sector": "Education & Training",
+        "Budget": 29543668,
+        "Implementing Partner": "International Rescue Committee",
+        "Beneficiaries": 10779,
+        "Status": "Completed",
+        "Start Date": "2024-05-17",
+        "End Date": "2024-04-21",
+        "Description": "Development project focusing on health & medical services in Kunduz, Afghanistan."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          66.43205147827884,
+          34.98097022004676
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Country": "Afghanistan",
+        "Region": "Laghman",
+        "Project Name": "Health System Strengthening Assistance",
+        "Sector": "Environment & Climate Change",
+        "Budget": 10645506,
+        "Implementing Partner": "USAID",
+        "Beneficiaries": 2162,
+        "Status": "Paused",
+        "Start Date": "2023-12-22",
+        "End Date": "2026-06-14",
+        "Description": "Development project focusing on health & medical services in Laghman, Afghanistan."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          66.74311481623943,
+          36.05520125612151
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Country": "Afghanistan",
+        "Region": "Kunduz",
+        "Project Name": "Food Security Program",
+        "Sector": "Education & Training",
+        "Budget": 45132942,
+        "Implementing Partner": "Save the Children",
+        "Beneficiaries": 35934,
+        "Status": "Active",
+        "Start Date": "2022-05-24",
+        "End Date": "2026-10-12",
+        "Description": "Development project focusing on women's empowerment & gender in Kunduz, Afghanistan."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          70.04681089985239,
+          34.73472140472637
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Country": "Afghanistan",
+        "Region": "Kunduz",
+        "Project Name": "Infrastructure Development Development Program",
+        "Sector": "Women's Empowerment & Gender",
+        "Budget": 13612191,
+        "Implementing Partner": "Danish Refugee Council",
+        "Beneficiaries": 10265,
+        "Status": "Completed",
+        "Start Date": "2022-07-07",
+        "End Date": "2024-02-02",
+        "Description": "Development project focusing on governance & civil society in Kunduz, Afghanistan."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          66.7296916644577,
+          33.67006637672107
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Country": "Afghanistan",
+        "Region": "Kunduz",
+        "Project Name": "Emergency Response Response",
+        "Sector": "Education & Training",
+        "Budget": 36770090,
+        "Implementing Partner": "UNICEF",
+        "Beneficiaries": 36735,
+        "Status": "Cancelled",
+        "Start Date": "2020-12-08",
+        "End Date": "2025-06-04",
+        "Description": "Development project focusing on water & sanitation in Kunduz, Afghanistan."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          69.92503798499396,
+          34.59155200184386
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Country": "Afghanistan",
+        "Region": "Herat",
+        "Project Name": "Health System Strengthening Support",
+        "Sector": "Agriculture & Food Security",
+        "Budget": 2527133,
+        "Implementing Partner": "World Health Organization",
+        "Beneficiaries": 2703,
+        "Status": "Cancelled",
+        "Start Date": "2021-10-06",
+        "End Date": "2026-02-23",
+        "Description": "Development project focusing on women's empowerment & gender in Herat, Afghanistan."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          68.87382363597882,
+          32.774350815015545
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Country": "Afghanistan",
+        "Region": "Kandahar",
+        "Project Name": "Education Access Emergency Response",
+        "Sector": "Peace & Security",
+        "Budget": 15594711,
+        "Implementing Partner": "Danish Refugee Council",
+        "Beneficiaries": 9827,
+        "Status": "Completed",
+        "Start Date": "2021-12-31",
+        "End Date": "2024-11-10",
+        "Description": "Development project focusing on infrastructure & transportation in Kandahar, Afghanistan."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          69.34344639059157,
+          33.5497568270249
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Country": "Afghanistan",
+        "Region": "Balkh",
+        "Project Name": "Economic Empowerment Initiative",
+        "Sector": "Agriculture & Food Security",
+        "Budget": 20065262,
+        "Implementing Partner": "World Food Programme",
+        "Beneficiaries": 21310,
+        "Status": "Active",
+        "Start Date": "2024-12-09",
+        "End Date": "2025-03-03",
+        "Description": "Development project focusing on health & medical services in Balkh, Afghanistan."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          68.54464616322733,
+          34.89551242772401
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Country": "Afghanistan",
+        "Region": "Kunduz",
+        "Project Name": "Education Access Program",
+        "Sector": "Education & Training",
+        "Budget": 13207813,
+        "Implementing Partner": "UNICEF",
+        "Beneficiaries": 14328,
+        "Status": "Cancelled",
+        "Start Date": "2021-11-01",
+        "End Date": "2024-01-19",
+        "Description": "Development project focusing on health & medical services in Kunduz, Afghanistan."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          67.93667867006403,
+          35.216817637647715
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Country": "Afghanistan",
+        "Region": "Balkh",
+        "Project Name": "Infrastructure Development Response",
+        "Sector": "Child Protection & Youth",
+        "Budget": 28158018,
+        "Implementing Partner": "Save the Children",
+        "Beneficiaries": 33764,
+        "Status": "Paused",
+        "Start Date": "2020-11-17",
+        "End Date": "2025-07-04",
+        "Description": "Development project focusing on emergency response & humanitarian aid in Balkh, Afghanistan."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          70.67253065090595,
+          32.79289961123003
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Country": "Afghanistan",
+        "Region": "Herat",
+        "Project Name": "Food Security Development Program",
+        "Sector": "Governance & Civil Society",
+        "Budget": 39224317,
+        "Implementing Partner": "World Food Programme",
+        "Beneficiaries": 37027,
+        "Status": "Completed",
+        "Start Date": "2024-12-16",
+        "End Date": "2025-01-02",
+        "Description": "Development project focusing on education & training in Herat, Afghanistan."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          66.61782438720726,
+          35.51340022090187
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Country": "Afghanistan",
+        "Region": "Nangarhar",
+        "Project Name": "Infrastructure Development Response",
+        "Sector": "Emergency Response & Humanitarian Aid",
+        "Budget": 45269437,
+        "Implementing Partner": "CARE International",
+        "Beneficiaries": 23664,
+        "Status": "Active",
+        "Start Date": "2020-02-18",
+        "End Date": "2025-12-03",
+        "Description": "Development project focusing on agriculture & food security in Nangarhar, Afghanistan."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          70.61891528158638,
+          34.44477525244025
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Country": "Afghanistan",
+        "Region": "Kunduz",
+        "Project Name": "Water Security Emergency Response",
+        "Sector": "Governance & Civil Society",
+        "Budget": 8453041,
+        "Implementing Partner": "UNICEF",
+        "Beneficiaries": 2022,
+        "Status": "Active",
+        "Start Date": "2024-11-10",
+        "End Date": "2025-09-16",
+        "Description": "Development project focusing on emergency response & humanitarian aid in Kunduz, Afghanistan."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          66.99730268290023,
+          32.62780697829015
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Country": "Afghanistan",
+        "Region": "Nangarhar",
+        "Project Name": "Humanitarian Assistance Program",
+        "Sector": "Environment & Climate Change",
+        "Budget": 35839828,
+        "Implementing Partner": "USAID",
+        "Beneficiaries": 30202,
+        "Status": "Active",
+        "Start Date": "2020-04-22",
+        "End Date": "2024-11-12",
+        "Description": "Development project focusing on child protection & youth in Nangarhar, Afghanistan."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          66.94621298149062,
+          33.0820277731934
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Country": "Afghanistan",
+        "Region": "Herat",
+        "Project Name": "Emergency Response Emergency Response",
+        "Sector": "Environment & Climate Change",
+        "Budget": 5033898,
+        "Implementing Partner": "Plan International",
+        "Beneficiaries": 4086,
+        "Status": "Completed",
+        "Start Date": "2021-09-28",
+        "End Date": "2025-05-15",
+        "Description": "Development project focusing on peace & security in Herat, Afghanistan."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          71.75781164250357,
+          34.23996180605529
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Country": "Afghanistan",
+        "Region": "Kandahar",
+        "Project Name": "Peace Building Program",
+        "Sector": "Peace & Security",
+        "Budget": 13738820,
+        "Implementing Partner": "International Rescue Committee",
+        "Beneficiaries": 4208,
+        "Status": "Active",
+        "Start Date": "2020-06-13",
+        "End Date": "2025-09-23",
+        "Description": "Development project focusing on peace & security in Kandahar, Afghanistan."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          70.15264901364927,
+          35.24218772009819
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Country": "Afghanistan",
+        "Region": "Kandahar",
+        "Project Name": "Food Security Response",
+        "Sector": "Agriculture & Food Security",
+        "Budget": 3923764,
+        "Implementing Partner": "World Food Programme",
+        "Beneficiaries": 933,
+        "Status": "Completed",
+        "Start Date": "2021-10-24",
+        "End Date": "2025-04-18",
+        "Description": "Development project focusing on women's empowerment & gender in Kandahar, Afghanistan."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          67.53234851726646,
+          33.73176709700163
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Country": "Afghanistan",
+        "Region": "Herat",
+        "Project Name": "Humanitarian Assistance Support",
+        "Sector": "Economic Growth & Private Sector",
+        "Budget": 35001383,
+        "Implementing Partner": "Save the Children",
+        "Beneficiaries": 26083,
+        "Status": "Active",
+        "Start Date": "2020-09-28",
+        "End Date": "2024-01-05",
+        "Description": "Development project focusing on health & medical services in Herat, Afghanistan."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          66.32788230423797,
+          33.15362245058176
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Country": "Afghanistan",
+        "Region": "Kabul",
+        "Project Name": "Economic Empowerment Project",
+        "Sector": "Agriculture & Food Security",
+        "Budget": 12078055,
+        "Implementing Partner": "World Vision International",
+        "Beneficiaries": 2722,
+        "Status": "Cancelled",
+        "Start Date": "2020-07-01",
+        "End Date": "2024-04-04",
+        "Description": "Development project focusing on water & sanitation in Kabul, Afghanistan."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          66.93944234788607,
+          34.7395330514188
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Country": "Iraq",
+        "Region": "Anbar",
+        "Project Name": "Education Access Emergency Response",
+        "Sector": "Economic Growth & Private Sector",
+        "Budget": 41882527,
+        "Implementing Partner": "CARE International",
+        "Beneficiaries": 40867,
+        "Status": "Completed",
+        "Start Date": "2023-02-17",
+        "End Date": "2024-08-02",
+        "Description": "Development project focusing on governance & civil society in Anbar, Iraq."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          45.443190718435154,
+          33.58075032702584
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Country": "Iraq",
+        "Region": "Kirkuk",
+        "Project Name": "Education Access Initiative",
+        "Sector": "Health & Medical Services",
+        "Budget": 49967099,
+        "Implementing Partner": "UNICEF",
+        "Beneficiaries": 34255,
+        "Status": "Cancelled",
+        "Start Date": "2021-01-13",
+        "End Date": "2026-03-06",
+        "Description": "Development project focusing on women's empowerment & gender in Kirkuk, Iraq."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          43.46397783220698,
+          33.56475742112586
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Country": "Iraq",
+        "Region": "Najaf",
+        "Project Name": "Humanitarian Assistance Project",
+        "Sector": "Governance & Civil Society",
+        "Budget": 1499607,
+        "Implementing Partner": "Norwegian Refugee Council",
+        "Beneficiaries": 586,
+        "Status": "Cancelled",
+        "Start Date": "2020-09-11",
+        "End Date": "2024-05-10",
+        "Description": "Development project focusing on child protection & youth in Najaf, Iraq."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          45.24331029695108,
+          32.210635886597046
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Country": "Iraq",
+        "Region": "Anbar",
+        "Project Name": "Development Support Development Program",
+        "Sector": "Agriculture & Food Security",
+        "Budget": 17198361,
+        "Implementing Partner": "Save the Children",
+        "Beneficiaries": 5143,
+        "Status": "Active",
+        "Start Date": "2020-08-10",
+        "End Date": "2025-04-04",
+        "Description": "Development project focusing on child protection & youth in Anbar, Iraq."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          43.723477697427455,
+          33.52729174257534
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Country": "Iraq",
+        "Region": "Mosul",
+        "Project Name": "Emergency Response Project",
+        "Sector": "Economic Growth & Private Sector",
+        "Budget": 23403632,
+        "Implementing Partner": "Doctors Without Borders",
+        "Beneficiaries": 18148,
+        "Status": "Paused",
+        "Start Date": "2024-02-19",
+        "End Date": "2024-07-29",
+        "Description": "Development project focusing on education & training in Mosul, Iraq."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          42.32566483373998,
+          32.72419478647758
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Country": "Iraq",
+        "Region": "Mosul",
+        "Project Name": "Humanitarian Assistance Assistance",
+        "Sector": "Child Protection & Youth",
+        "Budget": 29650767,
+        "Implementing Partner": "Oxfam International",
+        "Beneficiaries": 31311,
+        "Status": "Paused",
+        "Start Date": "2024-06-11",
+        "End Date": "2026-01-10",
+        "Description": "Development project focusing on agriculture & food security in Mosul, Iraq."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          43.26027077085701,
+          31.738352482453866
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Country": "Iraq",
+        "Region": "Mosul",
+        "Project Name": "Health System Strengthening Emergency Response",
+        "Sector": "Health & Medical Services",
+        "Budget": 34477905,
+        "Implementing Partner": "Action Against Hunger",
+        "Beneficiaries": 24789,
+        "Status": "Completed",
+        "Start Date": "2022-09-09",
+        "End Date": "2024-11-22",
+        "Description": "Development project focusing on child protection & youth in Mosul, Iraq."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          46.387250023499874,
+          31.279152979563165
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Country": "Iraq",
+        "Region": "Mosul",
+        "Project Name": "Education Access Program",
+        "Sector": "Water & Sanitation",
+        "Budget": 8695495,
+        "Implementing Partner": "World Food Programme",
+        "Beneficiaries": 9195,
+        "Status": "Completed",
+        "Start Date": "2024-07-06",
+        "End Date": "2024-04-29",
+        "Description": "Development project focusing on women's empowerment & gender in Mosul, Iraq."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          45.88875331590289,
+          33.19663166525892
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Country": "Iraq",
+        "Region": "Basra",
+        "Project Name": "Humanitarian Assistance Emergency Response",
+        "Sector": "Health & Medical Services",
+        "Budget": 9480300,
+        "Implementing Partner": "Oxfam International",
+        "Beneficiaries": 11341,
+        "Status": "Completed",
+        "Start Date": "2024-05-08",
+        "End Date": "2026-03-30",
+        "Description": "Development project focusing on infrastructure & transportation in Basra, Iraq."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          45.98026194373384,
+          34.84900624895195
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Country": "Iraq",
+        "Region": "Erbil",
+        "Project Name": "Peace Building Response",
+        "Sector": "Economic Growth & Private Sector",
+        "Budget": 21043073,
+        "Implementing Partner": "World Vision International",
+        "Beneficiaries": 9981,
+        "Status": "Completed",
+        "Start Date": "2023-04-22",
+        "End Date": "2024-07-16",
+        "Description": "Development project focusing on economic growth & private sector in Erbil, Iraq."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          45.228030653325156,
+          33.89703969179182
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Country": "Iraq",
+        "Region": "Anbar",
+        "Project Name": "Capacity Building Emergency Response",
+        "Sector": "Women's Empowerment & Gender",
+        "Budget": 38023725,
+        "Implementing Partner": "Danish Refugee Council",
+        "Beneficiaries": 38960,
+        "Status": "Completed",
+        "Start Date": "2021-11-01",
+        "End Date": "2026-12-01",
+        "Description": "Development project focusing on education & training in Anbar, Iraq."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          44.48119920332627,
+          32.889686304883604
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Country": "Iraq",
+        "Region": "Erbil",
+        "Project Name": "Infrastructure Development Assistance",
+        "Sector": "Women's Empowerment & Gender",
+        "Budget": 11002053,
+        "Implementing Partner": "Danish Refugee Council",
+        "Beneficiaries": 3047,
+        "Status": "Paused",
+        "Start Date": "2022-09-16",
+        "End Date": "2025-02-27",
+        "Description": "Development project focusing on health & medical services in Erbil, Iraq."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          42.47085377070967,
+          33.80123500271804
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Country": "Iraq",
+        "Region": "Baghdad",
+        "Project Name": "Education Access Response",
+        "Sector": "Women's Empowerment & Gender",
+        "Budget": 7286490,
+        "Implementing Partner": "World Health Organization",
+        "Beneficiaries": 7197,
+        "Status": "Paused",
+        "Start Date": "2022-02-13",
+        "End Date": "2026-01-17",
+        "Description": "Development project focusing on emergency response & humanitarian aid in Baghdad, Iraq."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          41.17824235394204,
+          31.27146100237227
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Country": "Iraq",
+        "Region": "Basra",
+        "Project Name": "Capacity Building Assistance",
+        "Sector": "Economic Growth & Private Sector",
+        "Budget": 20229513,
+        "Implementing Partner": "Action Against Hunger",
+        "Beneficiaries": 6143,
+        "Status": "Active",
+        "Start Date": "2022-02-24",
+        "End Date": "2025-11-10",
+        "Description": "Development project focusing on governance & civil society in Basra, Iraq."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          43.33848844339377,
+          33.855789561336714
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Country": "Iraq",
+        "Region": "Basra",
+        "Project Name": "Water Security Project",
+        "Sector": "Health & Medical Services",
+        "Budget": 34676553,
+        "Implementing Partner": "International Rescue Committee",
+        "Beneficiaries": 34659,
+        "Status": "Paused",
+        "Start Date": "2021-09-25",
+        "End Date": "2024-04-27",
+        "Description": "Development project focusing on economic growth & private sector in Basra, Iraq."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          46.651649156488816,
+          34.732122694495345
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Country": "Iraq",
+        "Region": "Najaf",
+        "Project Name": "Emergency Response Response",
+        "Sector": "Peace & Security",
+        "Budget": 46696078,
+        "Implementing Partner": "UNHCR",
+        "Beneficiaries": 48306,
+        "Status": "Paused",
+        "Start Date": "2024-08-04",
+        "End Date": "2024-05-03",
+        "Description": "Development project focusing on child protection & youth in Najaf, Iraq."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          41.12930511062107,
+          32.84194770207476
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Country": "Iraq",
+        "Region": "Erbil",
+        "Project Name": "Emergency Response Project",
+        "Sector": "Infrastructure & Transportation",
+        "Budget": 49266137,
+        "Implementing Partner": "Danish Refugee Council",
+        "Beneficiaries": 22959,
+        "Status": "Paused",
+        "Start Date": "2022-11-18",
+        "End Date": "2025-11-17",
+        "Description": "Development project focusing on economic growth & private sector in Erbil, Iraq."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          41.61766497943166,
+          32.58534091216935
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Country": "Iraq",
+        "Region": "Anbar",
+        "Project Name": "Water Security Response",
+        "Sector": "Peace & Security",
+        "Budget": 49886955,
+        "Implementing Partner": "UNHCR",
+        "Beneficiaries": 44918,
+        "Status": "Paused",
+        "Start Date": "2021-04-05",
+        "End Date": "2024-07-06",
+        "Description": "Development project focusing on health & medical services in Anbar, Iraq."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          42.39175928298663,
+          31.163140904798546
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Country": "Iraq",
+        "Region": "Najaf",
+        "Project Name": "Health System Strengthening Support",
+        "Sector": "Emergency Response & Humanitarian Aid",
+        "Budget": 4210702,
+        "Implementing Partner": "Mercy Corps",
+        "Beneficiaries": 4888,
+        "Status": "Completed",
+        "Start Date": "2020-05-04",
+        "End Date": "2025-12-02",
+        "Description": "Development project focusing on agriculture & food security in Najaf, Iraq."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          43.318075776398935,
+          32.02485401305501
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Country": "Iraq",
+        "Region": "Basra",
+        "Project Name": "Economic Empowerment Program",
+        "Sector": "Women's Empowerment & Gender",
+        "Budget": 17593104,
+        "Implementing Partner": "International Rescue Committee",
+        "Beneficiaries": 16237,
+        "Status": "Paused",
+        "Start Date": "2024-02-17",
+        "End Date": "2024-11-12",
+        "Description": "Development project focusing on peace & security in Basra, Iraq."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          41.67235072115901,
+          31.51514830585475
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Country": "Syria",
+        "Region": "Homs",
+        "Project Name": "Food Security Support",
+        "Sector": "Infrastructure & Transportation",
+        "Budget": 12712998,
+        "Implementing Partner": "Danish Refugee Council",
+        "Beneficiaries": 12448,
+        "Status": "Active",
+        "Start Date": "2024-04-19",
+        "End Date": "2026-10-16",
+        "Description": "Development project focusing on emergency response & humanitarian aid in Homs, Syria."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.583577714528275,
+          33.40406030707227
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Country": "Syria",
+        "Region": "Deir ez-Zor",
+        "Project Name": "Infrastructure Development Support",
+        "Sector": "Economic Growth & Private Sector",
+        "Budget": 13814410,
+        "Implementing Partner": "Islamic Relief Worldwide",
+        "Beneficiaries": 13940,
+        "Status": "Completed",
+        "Start Date": "2021-02-20",
+        "End Date": "2024-09-23",
+        "Description": "Development project focusing on environment & climate change in Deir ez-Zor, Syria."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.28321388296455,
+          34.80557821777862
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Country": "Syria",
+        "Region": "Daraa",
+        "Project Name": "Food Security Response",
+        "Sector": "Agriculture & Food Security",
+        "Budget": 26546057,
+        "Implementing Partner": "Save the Children",
+        "Beneficiaries": 8540,
+        "Status": "Completed",
+        "Start Date": "2023-07-17",
+        "End Date": "2024-07-03",
+        "Description": "Development project focusing on peace & security in Daraa, Syria."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.672272589572216,
+          35.81180771148092
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Country": "Syria",
+        "Region": "Damascus",
+        "Project Name": "Water Security Emergency Response",
+        "Sector": "Infrastructure & Transportation",
+        "Budget": 14997791,
+        "Implementing Partner": "World Vision International",
+        "Beneficiaries": 17697,
+        "Status": "Cancelled",
+        "Start Date": "2020-05-22",
+        "End Date": "2025-02-06",
+        "Description": "Development project focusing on women's empowerment & gender in Damascus, Syria."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.1654927486326,
+          35.93904402108735
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Country": "Syria",
+        "Region": "Aleppo",
+        "Project Name": "Infrastructure Development Initiative",
+        "Sector": "Education & Training",
+        "Budget": 32221040,
+        "Implementing Partner": "Oxfam International",
+        "Beneficiaries": 38461,
+        "Status": "Paused",
+        "Start Date": "2020-08-29",
+        "End Date": "2025-01-18",
+        "Description": "Development project focusing on peace & security in Aleppo, Syria."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.291999054590846,
+          36.258909484361176
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Country": "Syria",
+        "Region": "Damascus",
+        "Project Name": "Water Security Support",
+        "Sector": "Education & Training",
+        "Budget": 2476492,
+        "Implementing Partner": "Médecins Sans Frontières",
+        "Beneficiaries": 2722,
+        "Status": "Active",
+        "Start Date": "2021-03-11",
+        "End Date": "2025-03-08",
+        "Description": "Development project focusing on environment & climate change in Damascus, Syria."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          40.7207051395137,
+          34.65439249131167
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Country": "Syria",
+        "Region": "Damascus",
+        "Project Name": "Infrastructure Development Response",
+        "Sector": "Health & Medical Services",
+        "Budget": 9079718,
+        "Implementing Partner": "Plan International",
+        "Beneficiaries": 3662,
+        "Status": "Active",
+        "Start Date": "2023-05-01",
+        "End Date": "2025-12-10",
+        "Description": "Development project focusing on infrastructure & transportation in Damascus, Syria."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.418164689974866,
+          33.341473604614436
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Country": "Syria",
+        "Region": "Aleppo",
+        "Project Name": "Economic Empowerment Initiative",
+        "Sector": "Environment & Climate Change",
+        "Budget": 31097883,
+        "Implementing Partner": "Islamic Relief Worldwide",
+        "Beneficiaries": 31574,
+        "Status": "Paused",
+        "Start Date": "2023-02-10",
+        "End Date": "2026-03-31",
+        "Description": "Development project focusing on women's empowerment & gender in Aleppo, Syria."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          36.341764309141254,
+          35.27730554197013
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Country": "Syria",
+        "Region": "Idlib",
+        "Project Name": "Resilience Building Development Program",
+        "Sector": "Economic Growth & Private Sector",
+        "Budget": 24670485,
+        "Implementing Partner": "Oxfam International",
+        "Beneficiaries": 7003,
+        "Status": "Cancelled",
+        "Start Date": "2021-04-04",
+        "End Date": "2024-05-20",
+        "Description": "Development project focusing on water & sanitation in Idlib, Syria."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.79573131440077,
+          35.02678914704995
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Country": "Syria",
+        "Region": "Idlib",
+        "Project Name": "Education Access Development Program",
+        "Sector": "Peace & Security",
+        "Budget": 41996601,
+        "Implementing Partner": "Plan International",
+        "Beneficiaries": 26301,
+        "Status": "Cancelled",
+        "Start Date": "2020-03-15",
+        "End Date": "2025-01-14",
+        "Description": "Development project focusing on water & sanitation in Idlib, Syria."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.95806173179682,
+          33.146096562718256
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Country": "Syria",
+        "Region": "Latakia",
+        "Project Name": "Resilience Building Program",
+        "Sector": "Peace & Security",
+        "Budget": 18901622,
+        "Implementing Partner": "Mercy Corps",
+        "Beneficiaries": 7912,
+        "Status": "Completed",
+        "Start Date": "2021-11-07",
+        "End Date": "2024-02-03",
+        "Description": "Development project focusing on child protection & youth in Latakia, Syria."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.93556576852133,
+          36.77415876338641
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Country": "Syria",
+        "Region": "Deir ez-Zor",
+        "Project Name": "Economic Empowerment Response",
+        "Sector": "Health & Medical Services",
+        "Budget": 11293507,
+        "Implementing Partner": "World Food Programme",
+        "Beneficiaries": 2700,
+        "Status": "Completed",
+        "Start Date": "2020-08-17",
+        "End Date": "2024-01-11",
+        "Description": "Development project focusing on peace & security in Deir ez-Zor, Syria."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          38.539258283568685,
+          33.57289032913971
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Country": "Syria",
+        "Region": "Idlib",
+        "Project Name": "Development Support Development Program",
+        "Sector": "Agriculture & Food Security",
+        "Budget": 25448391,
+        "Implementing Partner": "UNICEF",
+        "Beneficiaries": 12975,
+        "Status": "Completed",
+        "Start Date": "2022-09-08",
+        "End Date": "2026-03-20",
+        "Description": "Development project focusing on education & training in Idlib, Syria."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          38.2561783548374,
+          35.14168275754897
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Country": "Syria",
+        "Region": "Aleppo",
+        "Project Name": "Peace Building Assistance",
+        "Sector": "Health & Medical Services",
+        "Budget": 45833172,
+        "Implementing Partner": "World Food Programme",
+        "Beneficiaries": 51575,
+        "Status": "Cancelled",
+        "Start Date": "2021-12-28",
+        "End Date": "2026-04-13",
+        "Description": "Development project focusing on economic growth & private sector in Aleppo, Syria."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          40.84139970503654,
+          35.542060680905585
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Country": "Syria",
+        "Region": "Homs",
+        "Project Name": "Economic Empowerment Program",
+        "Sector": "Environment & Climate Change",
+        "Budget": 2809979,
+        "Implementing Partner": "Norwegian Refugee Council",
+        "Beneficiaries": 3098,
+        "Status": "Completed",
+        "Start Date": "2024-10-12",
+        "End Date": "2026-07-17",
+        "Description": "Development project focusing on child protection & youth in Homs, Syria."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          40.58190915159525,
+          35.65205205470539
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Country": "Yemen",
+        "Region": "Taiz",
+        "Project Name": "Peace Building Support",
+        "Sector": "Emergency Response & Humanitarian Aid",
+        "Budget": 31394364,
+        "Implementing Partner": "UNHCR",
+        "Beneficiaries": 29455,
+        "Status": "Completed",
+        "Start Date": "2022-03-16",
+        "End Date": "2026-07-16",
+        "Description": "Development project focusing on agriculture & food security in Taiz, Yemen."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.568152546532524,
+          14.82225583427112
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Country": "Yemen",
+        "Region": "Hajjah",
+        "Project Name": "Health System Strengthening Response",
+        "Sector": "Water & Sanitation",
+        "Budget": 44705520,
+        "Implementing Partner": "Médecins Sans Frontières",
+        "Beneficiaries": 10149,
+        "Status": "Active",
+        "Start Date": "2021-03-05",
+        "End Date": "2026-10-12",
+        "Description": "Development project focusing on peace & security in Hajjah, Yemen."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          45.96182814552811,
+          16.977919215125183
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Country": "Yemen",
+        "Region": "Hajjah",
+        "Project Name": "Health System Strengthening Program",
+        "Sector": "Agriculture & Food Security",
+        "Budget": 8847675,
+        "Implementing Partner": "Mercy Corps",
+        "Beneficiaries": 2282,
+        "Status": "Active",
+        "Start Date": "2020-02-19",
+        "End Date": "2024-02-11",
+        "Description": "Development project focusing on education & training in Hajjah, Yemen."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          45.93489027628424,
+          17.258764664530727
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Country": "Yemen",
+        "Region": "Hodeidah",
+        "Project Name": "Water Security Emergency Response",
+        "Sector": "Environment & Climate Change",
+        "Budget": 28805935,
+        "Implementing Partner": "World Food Programme",
+        "Beneficiaries": 11292,
+        "Status": "Paused",
+        "Start Date": "2024-09-19",
+        "End Date": "2025-01-24",
+        "Description": "Development project focusing on environment & climate change in Hodeidah, Yemen."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          47.57941479442725,
+          14.268337045614286
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Country": "Yemen",
+        "Region": "Hajjah",
+        "Project Name": "Development Support Emergency Response",
+        "Sector": "Women's Empowerment & Gender",
+        "Budget": 47816911,
+        "Implementing Partner": "International Committee of the Red Cross",
+        "Beneficiaries": 51026,
+        "Status": "Cancelled",
+        "Start Date": "2024-08-14",
+        "End Date": "2026-11-27",
+        "Description": "Development project focusing on child protection & youth in Hajjah, Yemen."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          44.832439634909065,
+          13.638184609987661
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Country": "Yemen",
+        "Region": "Dhamar",
+        "Project Name": "Humanitarian Assistance Project",
+        "Sector": "Environment & Climate Change",
+        "Budget": 21001247,
+        "Implementing Partner": "CARE International",
+        "Beneficiaries": 10726,
+        "Status": "Completed",
+        "Start Date": "2022-04-23",
+        "End Date": "2024-09-09",
+        "Description": "Development project focusing on education & training in Dhamar, Yemen."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          46.96901454431173,
+          13.504700254222083
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Country": "Yemen",
+        "Region": "Dhamar",
+        "Project Name": "Peace Building Project",
+        "Sector": "Child Protection & Youth",
+        "Budget": 11844011,
+        "Implementing Partner": "UNICEF",
+        "Beneficiaries": 7456,
+        "Status": "Active",
+        "Start Date": "2023-05-10",
+        "End Date": "2024-12-07",
+        "Description": "Development project focusing on water & sanitation in Dhamar, Yemen."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          44.76146942135903,
+          14.06704781038501
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Country": "Yemen",
+        "Region": "Dhamar",
+        "Project Name": "Water Security Initiative",
+        "Sector": "Women's Empowerment & Gender",
+        "Budget": 47373477,
+        "Implementing Partner": "World Health Organization",
+        "Beneficiaries": 51652,
+        "Status": "Cancelled",
+        "Start Date": "2024-01-16",
+        "End Date": "2025-03-16",
+        "Description": "Development project focusing on peace & security in Dhamar, Yemen."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          47.38141079429299,
+          15.547679697248059
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Country": "Yemen",
+        "Region": "Hajjah",
+        "Project Name": "Infrastructure Development Project",
+        "Sector": "Child Protection & Youth",
+        "Budget": 34516271,
+        "Implementing Partner": "Mercy Corps",
+        "Beneficiaries": 29868,
+        "Status": "Paused",
+        "Start Date": "2023-08-04",
+        "End Date": "2025-07-26",
+        "Description": "Development project focusing on peace & security in Hajjah, Yemen."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.85793367129005,
+          17.220155678102966
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Country": "Ukraine",
+        "Region": "Lviv",
+        "Project Name": "Capacity Building Program",
+        "Sector": "Agriculture & Food Security",
+        "Budget": 12638412,
+        "Implementing Partner": "Plan International",
+        "Beneficiaries": 13165,
+        "Status": "Cancelled",
+        "Start Date": "2023-04-18",
+        "End Date": "2024-05-31",
+        "Description": "Development project focusing on governance & civil society in Lviv, Ukraine."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          33.814032466724065,
+          49.56825724692629
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Country": "Ukraine",
+        "Region": "Lviv",
+        "Project Name": "Development Support Response",
+        "Sector": "Infrastructure & Transportation",
+        "Budget": 12913671,
+        "Implementing Partner": "USAID",
+        "Beneficiaries": 12296,
+        "Status": "Cancelled",
+        "Start Date": "2024-03-24",
+        "End Date": "2026-04-16",
+        "Description": "Development project focusing on governance & civil society in Lviv, Ukraine."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          31.488006293243505,
+          48.68080332837086
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Country": "Ukraine",
+        "Region": "Lviv",
+        "Project Name": "Development Support Response",
+        "Sector": "Infrastructure & Transportation",
+        "Budget": 3754800,
+        "Implementing Partner": "World Health Organization",
+        "Beneficiaries": 3669,
+        "Status": "Completed",
+        "Start Date": "2024-12-27",
+        "End Date": "2024-08-22",
+        "Description": "Development project focusing on environment & climate change in Lviv, Ukraine."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          29.710924434790435,
+          47.8399767209516
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Country": "Ukraine",
+        "Region": "Donetsk",
+        "Project Name": "Water Security Assistance",
+        "Sector": "Water & Sanitation",
+        "Budget": 7298105,
+        "Implementing Partner": "Norwegian Refugee Council",
+        "Beneficiaries": 6707,
+        "Status": "Completed",
+        "Start Date": "2021-10-03",
+        "End Date": "2024-11-25",
+        "Description": "Development project focusing on agriculture & food security in Donetsk, Ukraine."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          31.28353334234179,
+          48.68776394531037
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Country": "Ukraine",
+        "Region": "Odesa",
+        "Project Name": "Health System Strengthening Development Program",
+        "Sector": "Child Protection & Youth",
+        "Budget": 1909690,
+        "Implementing Partner": "International Committee of the Red Cross",
+        "Beneficiaries": 1875,
+        "Status": "Paused",
+        "Start Date": "2022-09-13",
+        "End Date": "2025-05-15",
+        "Description": "Development project focusing on governance & civil society in Odesa, Ukraine."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          32.779804651873356,
+          48.03831082110058
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Country": "Ukraine",
+        "Region": "Odesa",
+        "Project Name": "Food Security Assistance",
+        "Sector": "Health & Medical Services",
+        "Budget": 19350901,
+        "Implementing Partner": "Oxfam International",
+        "Beneficiaries": 13050,
+        "Status": "Cancelled",
+        "Start Date": "2020-11-09",
+        "End Date": "2024-08-14",
+        "Description": "Development project focusing on infrastructure & transportation in Odesa, Ukraine."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          32.06309998542209,
+          48.34330027397445
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Country": "Ukraine",
+        "Region": "Lviv",
+        "Project Name": "Health System Strengthening Initiative",
+        "Sector": "Infrastructure & Transportation",
+        "Budget": 13995122,
+        "Implementing Partner": "International Committee of the Red Cross",
+        "Beneficiaries": 16176,
+        "Status": "Cancelled",
+        "Start Date": "2020-07-07",
+        "End Date": "2024-07-28",
+        "Description": "Development project focusing on emergency response & humanitarian aid in Lviv, Ukraine."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          29.60997945332077,
+          50.43159085124833
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Country": "Ukraine",
+        "Region": "Kyiv",
+        "Project Name": "Development Support Support",
+        "Sector": "Women's Empowerment & Gender",
+        "Budget": 6622203,
+        "Implementing Partner": "Doctors Without Borders",
+        "Beneficiaries": 5114,
+        "Status": "Completed",
+        "Start Date": "2024-01-02",
+        "End Date": "2024-09-03",
+        "Description": "Development project focusing on peace & security in Kyiv, Ukraine."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          31.31428715030001,
+          48.363297265278455
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Country": "Ukraine",
+        "Region": "Kharkiv",
+        "Project Name": "Food Security Response",
+        "Sector": "Health & Medical Services",
+        "Budget": 10828182,
+        "Implementing Partner": "Doctors Without Borders",
+        "Beneficiaries": 7999,
+        "Status": "Cancelled",
+        "Start Date": "2022-12-05",
+        "End Date": "2025-03-12",
+        "Description": "Development project focusing on infrastructure & transportation in Kharkiv, Ukraine."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          32.9017312577169,
+          48.390708615881294
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Country": "Ukraine",
+        "Region": "Kyiv",
+        "Project Name": "Development Support Support",
+        "Sector": "Water & Sanitation",
+        "Budget": 19066750,
+        "Implementing Partner": "World Food Programme",
+        "Beneficiaries": 6947,
+        "Status": "Cancelled",
+        "Start Date": "2023-05-06",
+        "End Date": "2026-12-12",
+        "Description": "Development project focusing on governance & civil society in Kyiv, Ukraine."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          32.229227567012344,
+          47.705620267912366
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Country": "Ukraine",
+        "Region": "Dnipro",
+        "Project Name": "Food Security Support",
+        "Sector": "Infrastructure & Transportation",
+        "Budget": 12108819,
+        "Implementing Partner": "CARE International",
+        "Beneficiaries": 6831,
+        "Status": "Paused",
+        "Start Date": "2020-12-19",
+        "End Date": "2024-12-22",
+        "Description": "Development project focusing on women's empowerment & gender in Dnipro, Ukraine."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          28.845601195651266,
+          48.27463178117759
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Country": "Ukraine",
+        "Region": "Kyiv",
+        "Project Name": "Resilience Building Emergency Response",
+        "Sector": "Water & Sanitation",
+        "Budget": 10984868,
+        "Implementing Partner": "Mercy Corps",
+        "Beneficiaries": 11740,
+        "Status": "Active",
+        "Start Date": "2024-02-11",
+        "End Date": "2025-01-27",
+        "Description": "Development project focusing on water & sanitation in Kyiv, Ukraine."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          28.704697272103555,
+          50.78795939693493
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Country": "Ukraine",
+        "Region": "Odesa",
+        "Project Name": "Development Support Assistance",
+        "Sector": "Governance & Civil Society",
+        "Budget": 17666890,
+        "Implementing Partner": "Danish Refugee Council",
+        "Beneficiaries": 8587,
+        "Status": "Paused",
+        "Start Date": "2024-01-13",
+        "End Date": "2025-02-09",
+        "Description": "Development project focusing on governance & civil society in Odesa, Ukraine."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          33.3255732683233,
+          49.94279054661536
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Country": "Ukraine",
+        "Region": "Kharkiv",
+        "Project Name": "Food Security Support",
+        "Sector": "Education & Training",
+        "Budget": 15567966,
+        "Implementing Partner": "CARE International",
+        "Beneficiaries": 8052,
+        "Status": "Completed",
+        "Start Date": "2022-06-16",
+        "End Date": "2024-11-22",
+        "Description": "Development project focusing on child protection & youth in Kharkiv, Ukraine."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          28.863743680010145,
+          48.08119240955
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Country": "Ukraine",
+        "Region": "Lviv",
+        "Project Name": "Water Security Initiative",
+        "Sector": "Peace & Security",
+        "Budget": 18411546,
+        "Implementing Partner": "Norwegian Refugee Council",
+        "Beneficiaries": 20363,
+        "Status": "Paused",
+        "Start Date": "2024-04-27",
+        "End Date": "2025-05-20",
+        "Description": "Development project focusing on peace & security in Lviv, Ukraine."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          28.027042765908693,
+          48.50235625421735
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Country": "Ukraine",
+        "Region": "Odesa",
+        "Project Name": "Development Support Initiative",
+        "Sector": "Child Protection & Youth",
+        "Budget": 3155666,
+        "Implementing Partner": "Mercy Corps",
+        "Beneficiaries": 756,
+        "Status": "Active",
+        "Start Date": "2020-07-19",
+        "End Date": "2025-09-21",
+        "Description": "Development project focusing on education & training in Odesa, Ukraine."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.92044932909976,
+          48.740414265568845
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Country": "Somalia",
+        "Region": "Bosaso",
+        "Project Name": "Development Support Emergency Response",
+        "Sector": "Child Protection & Youth",
+        "Budget": 8001622,
+        "Implementing Partner": "Catholic Relief Services",
+        "Beneficiaries": 5797,
+        "Status": "Paused",
+        "Start Date": "2023-02-28",
+        "End Date": "2024-04-14",
+        "Description": "Development project focusing on child protection & youth in Bosaso, Somalia."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          43.02079609034835,
+          5.188434683729494
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Country": "Somalia",
+        "Region": "Kismayo",
+        "Project Name": "Food Security Development Program",
+        "Sector": "Child Protection & Youth",
+        "Budget": 39003944,
+        "Implementing Partner": "Danish Refugee Council",
+        "Beneficiaries": 27126,
+        "Status": "Active",
+        "Start Date": "2021-04-18",
+        "End Date": "2024-11-01",
+        "Description": "Development project focusing on governance & civil society in Kismayo, Somalia."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          44.85963592834324,
+          4.140709372173205
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Country": "Somalia",
+        "Region": "Hargeisa",
+        "Project Name": "Humanitarian Assistance Assistance",
+        "Sector": "Infrastructure & Transportation",
+        "Budget": 33704327,
+        "Implementing Partner": "World Food Programme",
+        "Beneficiaries": 27289,
+        "Status": "Active",
+        "Start Date": "2020-02-07",
+        "End Date": "2025-02-08",
+        "Description": "Development project focusing on education & training in Hargeisa, Somalia."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.459894673643966,
+          4.766541612607191
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Country": "Somalia",
+        "Region": "Hargeisa",
+        "Project Name": "Peace Building Emergency Response",
+        "Sector": "Women's Empowerment & Gender",
+        "Budget": 48540846,
+        "Implementing Partner": "Danish Refugee Council",
+        "Beneficiaries": 25079,
+        "Status": "Completed",
+        "Start Date": "2021-10-05",
+        "End Date": "2025-10-08",
+        "Description": "Development project focusing on governance & civil society in Hargeisa, Somalia."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.83597594386855,
+          6.848420870111999
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Country": "Somalia",
+        "Region": "Berbera",
+        "Project Name": "Economic Empowerment Program",
+        "Sector": "Water & Sanitation",
+        "Budget": 15635551,
+        "Implementing Partner": "Doctors Without Borders",
+        "Beneficiaries": 3198,
+        "Status": "Paused",
+        "Start Date": "2020-05-14",
+        "End Date": "2024-12-16",
+        "Description": "Development project focusing on emergency response & humanitarian aid in Berbera, Somalia."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          47.856303567926886,
+          5.755358217717987
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Country": "Somalia",
+        "Region": "Hargeisa",
+        "Project Name": "Infrastructure Development Project",
+        "Sector": "Health & Medical Services",
+        "Budget": 18068757,
+        "Implementing Partner": "Action Against Hunger",
+        "Beneficiaries": 4897,
+        "Status": "Paused",
+        "Start Date": "2023-08-25",
+        "End Date": "2024-08-02",
+        "Description": "Development project focusing on women's empowerment & gender in Hargeisa, Somalia."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          43.948791629248994,
+          6.715606997022799
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Country": "Somalia",
+        "Region": "Bosaso",
+        "Project Name": "Education Access Initiative",
+        "Sector": "Water & Sanitation",
+        "Budget": 46689755,
+        "Implementing Partner": "Islamic Relief Worldwide",
+        "Beneficiaries": 20386,
+        "Status": "Active",
+        "Start Date": "2023-10-21",
+        "End Date": "2024-02-06",
+        "Description": "Development project focusing on economic growth & private sector in Bosaso, Somalia."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          45.94303785693471,
+          4.622753004883062
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Country": "Somalia",
+        "Region": "Garowe",
+        "Project Name": "Health System Strengthening Assistance",
+        "Sector": "Economic Growth & Private Sector",
+        "Budget": 39288593,
+        "Implementing Partner": "Mercy Corps",
+        "Beneficiaries": 10324,
+        "Status": "Cancelled",
+        "Start Date": "2024-05-22",
+        "End Date": "2024-01-21",
+        "Description": "Development project focusing on environment & climate change in Garowe, Somalia."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          43.55671745682149,
+          4.702971317718611
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Country": "Somalia",
+        "Region": "Galkayo",
+        "Project Name": "Economic Empowerment Project",
+        "Sector": "Child Protection & Youth",
+        "Budget": 8796207,
+        "Implementing Partner": "CARE International",
+        "Beneficiaries": 4001,
+        "Status": "Cancelled",
+        "Start Date": "2021-08-01",
+        "End Date": "2025-07-03",
+        "Description": "Development project focusing on women's empowerment & gender in Galkayo, Somalia."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          47.807818553773224,
+          3.1822452720903005
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Country": "Somalia",
+        "Region": "Bosaso",
+        "Project Name": "Emergency Response Project",
+        "Sector": "Agriculture & Food Security",
+        "Budget": 49657510,
+        "Implementing Partner": "Action Against Hunger",
+        "Beneficiaries": 24464,
+        "Status": "Paused",
+        "Start Date": "2020-07-16",
+        "End Date": "2026-07-10",
+        "Description": "Development project focusing on environment & climate change in Bosaso, Somalia."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          45.5868920346876,
+          3.363478488444354
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Country": "Somalia",
+        "Region": "Bosaso",
+        "Project Name": "Health System Strengthening Project",
+        "Sector": "Infrastructure & Transportation",
+        "Budget": 13512332,
+        "Implementing Partner": "World Food Programme",
+        "Beneficiaries": 7198,
+        "Status": "Cancelled",
+        "Start Date": "2020-11-05",
+        "End Date": "2025-05-03",
+        "Description": "Development project focusing on peace & security in Bosaso, Somalia."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          46.652557733909305,
+          3.383101491039069
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Country": "Somalia",
+        "Region": "Galkayo",
+        "Project Name": "Peace Building Project",
+        "Sector": "Economic Growth & Private Sector",
+        "Budget": 24272098,
+        "Implementing Partner": "International Rescue Committee",
+        "Beneficiaries": 12456,
+        "Status": "Completed",
+        "Start Date": "2023-03-31",
+        "End Date": "2024-07-04",
+        "Description": "Development project focusing on infrastructure & transportation in Galkayo, Somalia."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          44.15722362427933,
+          5.080869048720473
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Country": "Somalia",
+        "Region": "Hargeisa",
+        "Project Name": "Food Security Development Program",
+        "Sector": "Environment & Climate Change",
+        "Budget": 42141260,
+        "Implementing Partner": "Danish Refugee Council",
+        "Beneficiaries": 25941,
+        "Status": "Active",
+        "Start Date": "2023-08-30",
+        "End Date": "2025-08-30",
+        "Description": "Development project focusing on peace & security in Hargeisa, Somalia."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          47.95404260395095,
+          3.6380598953522894
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Country": "Somalia",
+        "Region": "Galkayo",
+        "Project Name": "Food Security Emergency Response",
+        "Sector": "Agriculture & Food Security",
+        "Budget": 571131,
+        "Implementing Partner": "USAID",
+        "Beneficiaries": 213,
+        "Status": "Cancelled",
+        "Start Date": "2020-01-29",
+        "End Date": "2025-07-24",
+        "Description": "Development project focusing on economic growth & private sector in Galkayo, Somalia."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          43.121719158176234,
+          5.4709032528072035
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Country": "Somalia",
+        "Region": "Galkayo",
+        "Project Name": "Resilience Building Support",
+        "Sector": "Agriculture & Food Security",
+        "Budget": 41593499,
+        "Implementing Partner": "USAID",
+        "Beneficiaries": 45634,
+        "Status": "Paused",
+        "Start Date": "2020-11-24",
+        "End Date": "2024-05-31",
+        "Description": "Development project focusing on infrastructure & transportation in Galkayo, Somalia."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          46.652353413494765,
+          4.299064818876523
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Country": "Ethiopia",
+        "Region": "Addis Ababa",
+        "Project Name": "Infrastructure Development Program",
+        "Sector": "Governance & Civil Society",
+        "Budget": 15154554,
+        "Implementing Partner": "CARE International",
+        "Beneficiaries": 10181,
+        "Status": "Completed",
+        "Start Date": "2020-04-24",
+        "End Date": "2026-05-26",
+        "Description": "Development project focusing on environment & climate change in Addis Ababa, Ethiopia."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          38.379712499284885,
+          9.508874464678863
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Country": "Ethiopia",
+        "Region": "Mekelle",
+        "Project Name": "Humanitarian Assistance Emergency Response",
+        "Sector": "Governance & Civil Society",
+        "Budget": 15474253,
+        "Implementing Partner": "CARE International",
+        "Beneficiaries": 5910,
+        "Status": "Completed",
+        "Start Date": "2020-05-03",
+        "End Date": "2026-04-29",
+        "Description": "Development project focusing on education & training in Mekelle, Ethiopia."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          40.900686493774835,
+          8.8142827140308
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Country": "Ethiopia",
+        "Region": "Addis Ababa",
+        "Project Name": "Resilience Building Initiative",
+        "Sector": "Women's Empowerment & Gender",
+        "Budget": 11825929,
+        "Implementing Partner": "Islamic Relief Worldwide",
+        "Beneficiaries": 7965,
+        "Status": "Active",
+        "Start Date": "2022-10-01",
+        "End Date": "2024-10-15",
+        "Description": "Development project focusing on environment & climate change in Addis Ababa, Ethiopia."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.70495959401111,
+          9.342408884385122
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Country": "Ethiopia",
+        "Region": "Mekelle",
+        "Project Name": "Economic Empowerment Support",
+        "Sector": "Agriculture & Food Security",
+        "Budget": 16339750,
+        "Implementing Partner": "CARE International",
+        "Beneficiaries": 15075,
+        "Status": "Cancelled",
+        "Start Date": "2020-01-09",
+        "End Date": "2026-07-28",
+        "Description": "Development project focusing on water & sanitation in Mekelle, Ethiopia."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          41.31291353590656,
+          7.667904024311118
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Country": "Ethiopia",
+        "Region": "Bahir Dar",
+        "Project Name": "Development Support Program",
+        "Sector": "Peace & Security",
+        "Budget": 3155927,
+        "Implementing Partner": "Islamic Relief Worldwide",
+        "Beneficiaries": 763,
+        "Status": "Paused",
+        "Start Date": "2024-04-06",
+        "End Date": "2026-05-26",
+        "Description": "Development project focusing on water & sanitation in Bahir Dar, Ethiopia."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.47563362842644,
+          7.444128605656944
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Country": "Ethiopia",
+        "Region": "Gondar",
+        "Project Name": "Peace Building Initiative",
+        "Sector": "Environment & Climate Change",
+        "Budget": 13222462,
+        "Implementing Partner": "World Food Programme",
+        "Beneficiaries": 11181,
+        "Status": "Completed",
+        "Start Date": "2021-05-25",
+        "End Date": "2026-04-28",
+        "Description": "Development project focusing on agriculture & food security in Gondar, Ethiopia."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.02294101190034,
+          8.837979063677034
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Country": "Ethiopia",
+        "Region": "Dire Dawa",
+        "Project Name": "Resilience Building Emergency Response",
+        "Sector": "Women's Empowerment & Gender",
+        "Budget": 1172256,
+        "Implementing Partner": "Save the Children",
+        "Beneficiaries": 317,
+        "Status": "Paused",
+        "Start Date": "2022-03-23",
+        "End Date": "2026-02-06",
+        "Description": "Development project focusing on water & sanitation in Dire Dawa, Ethiopia."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          42.472612712784255,
+          10.407002340716534
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Country": "Ethiopia",
+        "Region": "Addis Ababa",
+        "Project Name": "Resilience Building Emergency Response",
+        "Sector": "Environment & Climate Change",
+        "Budget": 10433395,
+        "Implementing Partner": "Médecins Sans Frontières",
+        "Beneficiaries": 7018,
+        "Status": "Paused",
+        "Start Date": "2020-11-15",
+        "End Date": "2024-04-28",
+        "Description": "Development project focusing on governance & civil society in Addis Ababa, Ethiopia."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          41.16308588130519,
+          7.554612097462581
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Country": "Ethiopia",
+        "Region": "Gondar",
+        "Project Name": "Health System Strengthening Response",
+        "Sector": "Women's Empowerment & Gender",
+        "Budget": 7479887,
+        "Implementing Partner": "Oxfam International",
+        "Beneficiaries": 2843,
+        "Status": "Active",
+        "Start Date": "2024-05-05",
+        "End Date": "2025-08-26",
+        "Description": "Development project focusing on water & sanitation in Gondar, Ethiopia."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.64224451163874,
+          10.211151952764329
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Country": "Ethiopia",
+        "Region": "Addis Ababa",
+        "Project Name": "Economic Empowerment Assistance",
+        "Sector": "Emergency Response & Humanitarian Aid",
+        "Budget": 9104382,
+        "Implementing Partner": "Norwegian Refugee Council",
+        "Beneficiaries": 10570,
+        "Status": "Paused",
+        "Start Date": "2021-01-01",
+        "End Date": "2024-03-20",
+        "Description": "Development project focusing on child protection & youth in Addis Ababa, Ethiopia."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          40.43814144689331,
+          8.010385881135168
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Country": "Kenya",
+        "Region": "Nakuru",
+        "Project Name": "Resilience Building Initiative",
+        "Sector": "Child Protection & Youth",
+        "Budget": 9901493,
+        "Implementing Partner": "Mercy Corps",
+        "Beneficiaries": 7001,
+        "Status": "Active",
+        "Start Date": "2024-11-10",
+        "End Date": "2025-09-25",
+        "Description": "Development project focusing on peace & security in Nakuru, Kenya."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          36.341689065552195,
+          1.4066789538519837
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Country": "Kenya",
+        "Region": "Thika",
+        "Project Name": "Food Security Program",
+        "Sector": "Infrastructure & Transportation",
+        "Budget": 14672670,
+        "Implementing Partner": "Save the Children",
+        "Beneficiaries": 14209,
+        "Status": "Cancelled",
+        "Start Date": "2023-01-25",
+        "End Date": "2025-09-27",
+        "Description": "Development project focusing on infrastructure & transportation in Thika, Kenya."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.39031266701062,
+          -0.6028678021555514
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Country": "Kenya",
+        "Region": "Machakos",
+        "Project Name": "Education Access Emergency Response",
+        "Sector": "Water & Sanitation",
+        "Budget": 5079230,
+        "Implementing Partner": "World Vision International",
+        "Beneficiaries": 3530,
+        "Status": "Cancelled",
+        "Start Date": "2021-01-27",
+        "End Date": "2024-09-03",
+        "Description": "Development project focusing on women's empowerment & gender in Machakos, Kenya."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          40.06622855268227,
+          0.5604353177168602
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Country": "Kenya",
+        "Region": "Eldoret",
+        "Project Name": "Emergency Response Project",
+        "Sector": "Agriculture & Food Security",
+        "Budget": 8541921,
+        "Implementing Partner": "Doctors Without Borders",
+        "Beneficiaries": 2211,
+        "Status": "Completed",
+        "Start Date": "2021-03-18",
+        "End Date": "2024-05-30",
+        "Description": "Development project focusing on infrastructure & transportation in Eldoret, Kenya."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          40.26047088553752,
+          0.30876655649673634
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Country": "Kenya",
+        "Region": "Nairobi",
+        "Project Name": "Food Security Support",
+        "Sector": "Peace & Security",
+        "Budget": 6486941,
+        "Implementing Partner": "Médecins Sans Frontières",
+        "Beneficiaries": 1447,
+        "Status": "Active",
+        "Start Date": "2023-07-10",
+        "End Date": "2024-06-04",
+        "Description": "Development project focusing on water & sanitation in Nairobi, Kenya."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.239660601854155,
+          1.8893881397230683
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Country": "Kenya",
+        "Region": "Mombasa",
+        "Project Name": "Resilience Building Assistance",
+        "Sector": "Water & Sanitation",
+        "Budget": 19463259,
+        "Implementing Partner": "Doctors Without Borders",
+        "Beneficiaries": 15771,
+        "Status": "Cancelled",
+        "Start Date": "2021-08-02",
+        "End Date": "2024-11-06",
+        "Description": "Development project focusing on women's empowerment & gender in Mombasa, Kenya."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          35.95602174091883,
+          1.3195176797428723
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Country": "Kenya",
+        "Region": "Thika",
+        "Project Name": "Peace Building Project",
+        "Sector": "Emergency Response & Humanitarian Aid",
+        "Budget": 19962710,
+        "Implementing Partner": "World Vision International",
+        "Beneficiaries": 6355,
+        "Status": "Paused",
+        "Start Date": "2020-12-24",
+        "End Date": "2025-07-02",
+        "Description": "Development project focusing on education & training in Thika, Kenya."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          36.35199628216176,
+          1.276157205841857
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Country": "Kenya",
+        "Region": "Eldoret",
+        "Project Name": "Development Support Development Program",
+        "Sector": "Environment & Climate Change",
+        "Budget": 5706207,
+        "Implementing Partner": "UNICEF",
+        "Beneficiaries": 2487,
+        "Status": "Active",
+        "Start Date": "2022-03-30",
+        "End Date": "2025-01-25",
+        "Description": "Development project focusing on child protection & youth in Eldoret, Kenya."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          38.77757236107218,
+          0.2140051955768361
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Country": "Kenya",
+        "Region": "Nakuru",
+        "Project Name": "Health System Strengthening Response",
+        "Sector": "Education & Training",
+        "Budget": 17875555,
+        "Implementing Partner": "International Committee of the Red Cross",
+        "Beneficiaries": 13691,
+        "Status": "Completed",
+        "Start Date": "2024-02-16",
+        "End Date": "2025-10-04",
+        "Description": "Development project focusing on child protection & youth in Nakuru, Kenya."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          38.60299042422831,
+          1.288905174977588
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Country": "Kenya",
+        "Region": "Thika",
+        "Project Name": "Infrastructure Development Development Program",
+        "Sector": "Education & Training",
+        "Budget": 9691827,
+        "Implementing Partner": "Doctors Without Borders",
+        "Beneficiaries": 9615,
+        "Status": "Paused",
+        "Start Date": "2024-04-01",
+        "End Date": "2025-01-12",
+        "Description": "Development project focusing on peace & security in Thika, Kenya."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.25550961674008,
+          0.945382357373932
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Country": "Kenya",
+        "Region": "Eldoret",
+        "Project Name": "Peace Building Project",
+        "Sector": "Water & Sanitation",
+        "Budget": 12806553,
+        "Implementing Partner": "CARE International",
+        "Beneficiaries": 14598,
+        "Status": "Completed",
+        "Start Date": "2024-10-09",
+        "End Date": "2025-01-04",
+        "Description": "Development project focusing on environment & climate change in Eldoret, Kenya."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          38.3267319359336,
+          -1.534084444907246
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Country": "Kenya",
+        "Region": "Thika",
+        "Project Name": "Health System Strengthening Development Program",
+        "Sector": "Infrastructure & Transportation",
+        "Budget": 16830234,
+        "Implementing Partner": "Danish Refugee Council",
+        "Beneficiaries": 9735,
+        "Status": "Paused",
+        "Start Date": "2023-08-13",
+        "End Date": "2024-03-12",
+        "Description": "Development project focusing on women's empowerment & gender in Thika, Kenya."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          35.91780010451672,
+          1.554534799110508
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Country": "Kenya",
+        "Region": "Machakos",
+        "Project Name": "Capacity Building Emergency Response",
+        "Sector": "Infrastructure & Transportation",
+        "Budget": 16047195,
+        "Implementing Partner": "Mercy Corps",
+        "Beneficiaries": 16234,
+        "Status": "Paused",
+        "Start Date": "2021-02-08",
+        "End Date": "2026-06-09",
+        "Description": "Development project focusing on peace & security in Machakos, Kenya."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          36.958221521906715,
+          1.3616658684464282
+        ]
+      }
+    }
+  ]
 }
