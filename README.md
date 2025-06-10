@@ -2,7 +2,7 @@
 
 An interactive map visualization showing the impact of international development projects and foreign aid across multiple countries. This dashboard helps track funding cuts, project status, and beneficiary impacts in regions affected by policy changes.
 
-![Dashboard Preview](https://via.placeholder.com/800x400/2563eb/ffffff?text=International+Development+Dashboard)
+![Dashboard Preview](dashboard-preview.png)
 
 ## ✨ Features
 
