@@ -748,7 +748,7 @@ const MapboxMap: React.FC = () => {
             onClick={resetView}
             className={`w-full text-left px-3 py-2 rounded-md text-sm transition-colors ${
               selectedCountry === null
-                ? "bg-blue-500 text-white"
+                ? "bg-[#ec737e] text-white"
                 : "bg-gray-100 hover:bg-gray-200 text-gray-700"
             }`}
           >
@@ -760,7 +760,7 @@ const MapboxMap: React.FC = () => {
               onClick={() => focusOnCountry(country)}
               className={`w-full text-left px-3 py-2 rounded-md text-sm transition-colors ${
                 selectedCountry === country
-                  ? "bg-blue-500 text-white"
+                  ? "bg-[#ec737e] text-white"
                   : "bg-gray-100 hover:bg-gray-200 text-gray-700"
               }`}
             >
@@ -944,7 +944,7 @@ const MapboxMap: React.FC = () => {
         }
       `}</style>
 
-      <div ref={mapContainer} className="w-full h-screen relative" />
+      <div ref={mapContainer} className="w-full h-full relative" />
     </div>
   );
 };
